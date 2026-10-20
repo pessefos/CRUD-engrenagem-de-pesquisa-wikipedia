@@ -1,6 +1,13 @@
-
-titulos = []
-textos = []
+titulo1 = ""
+texto1 = ""
+titulo2 = ""
+texto2 = ""
+titulo3 = ""
+texto3 = ""
+titulo4 = ""
+texto4 = ""
+titulo5 = ""
+texto5 = ""
 rodando = True
 
 while rodando:
@@ -21,35 +28,74 @@ while rodando:
         texto = input("texto: ")
         if titulo == "" or texto == "":
             print("nao pode ficar vazio")
+        elif titulo1 == "":
+            titulo1 = titulo
+            texto1 = texto
+            print("artigo criado na posicao 1!")
+        elif titulo2 == "":
+            titulo2 = titulo
+            texto2 = texto
+            print("artigo criado na posicao 2!")
+        elif titulo3 == "":
+            titulo3 = titulo
+            texto3 = texto
+            print("artigo criado na posicao 3!")
+        elif titulo4 == "":
+            titulo4 = titulo
+            texto4 = texto
+            print("artigo criado na posicao 4!")
+        elif titulo5 == "":
+            titulo5 = titulo
+            texto5 = texto
+            print("artigo criado na posicao 5!")
         else:
-            titulos.append(titulo)
-            textos.append(texto)
-            print("artigo criado!")
+            print("acabou o espaco, apague algum artigo")
 
     # ler
     elif op == "2":
-        if len(titulos) == 0:
-            print("nenhum artigo ainda")
+        n = input("qual artigo (1 a 5)? ")
+        if n == "1" and titulo1 != "":
+            print()
+            print(titulo1)
+            print(texto1)
+        elif n == "2" and titulo2 != "":
+            print()
+            print(titulo2)
+            print(texto2)
+        elif n == "3" and titulo3 != "":
+            print()
+            print(titulo3)
+            print(texto3)
+        elif n == "4" and titulo4 != "":
+            print()
+            print(titulo4)
+            print(texto4)
+        elif n == "5" and titulo5 != "":
+            print()
+            print(titulo5)
+            print(texto5)
         else:
-            for i in range(len(titulos)):
-                print(i + 1, "-", titulos[i])
-            n = input("qual artigo? ")
-            if n.isdigit() and int(n) >= 1 and int(n) <= len(titulos):
-                n = int(n) - 1
-                print()
-                print(titulos[n])
-                print(textos[n])
-            else:
-                print("numero invalido")
+            print("artigo nao existe")
 
     # pesquisar
     elif op == "3":
         busca = input("pesquisar: ").lower()
         achou = 0
-        for i in range(len(titulos)):
-            if busca in titulos[i].lower() or busca in textos[i].lower():
-                print(i + 1, "-", titulos[i])
-                achou = achou + 1
+        if titulo1 != "" and (busca in titulo1.lower() or busca in texto1.lower()):
+            print(1, "-", titulo1)
+            achou = achou + 1
+        if titulo2 != "" and (busca in titulo2.lower() or busca in texto2.lower()):
+            print(2, "-", titulo2)
+            achou = achou + 1
+        if titulo3 != "" and (busca in titulo3.lower() or busca in texto3.lower()):
+            print(3, "-", titulo3)
+            achou = achou + 1
+        if titulo4 != "" and (busca in titulo4.lower() or busca in texto4.lower()):
+            print(4, "-", titulo4)
+            achou = achou + 1
+        if titulo5 != "" and (busca in titulo5.lower() or busca in texto5.lower()):
+            print(5, "-", titulo5)
+            achou = achou + 1
         if achou == 0:
             print("nao encontrei nada")
         else:
@@ -57,48 +103,80 @@ while rodando:
 
     # editar
     elif op == "4":
-        if len(titulos) == 0:
-            print("nenhum artigo ainda")
+        n = input("qual artigo quer editar (1 a 5)? ")
+        novo_titulo = input("novo titulo: ")
+        novo_texto = input("novo texto: ")
+        if novo_titulo == "" or novo_texto == "":
+            print("nao pode ficar vazio")
+        elif n == "1" and titulo1 != "":
+            titulo1 = novo_titulo
+            texto1 = novo_texto
+            print("artigo editado!")
+        elif n == "2" and titulo2 != "":
+            titulo2 = novo_titulo
+            texto2 = novo_texto
+            print("artigo editado!")
+        elif n == "3" and titulo3 != "":
+            titulo3 = novo_titulo
+            texto3 = novo_texto
+            print("artigo editado!")
+        elif n == "4" and titulo4 != "":
+            titulo4 = novo_titulo
+            texto4 = novo_texto
+            print("artigo editado!")
+        elif n == "5" and titulo5 != "":
+            titulo5 = novo_titulo
+            texto5 = novo_texto
+            print("artigo editado!")
         else:
-            for i in range(len(titulos)):
-                print(i + 1, "-", titulos[i])
-            n = input("qual artigo quer editar? ")
-            if n.isdigit() and int(n) >= 1 and int(n) <= len(titulos):
-                n = int(n) - 1
-                novo_titulo = input("novo titulo: ")
-                novo_texto = input("novo texto: ")
-                if novo_titulo == "" or novo_texto == "":
-                    print("nao pode ficar vazio")
-                else:
-                    titulos[n] = novo_titulo
-                    textos[n] = novo_texto
-                    print("artigo editado!")
-            else:
-                print("numero invalido")
+            print("artigo nao existe")
 
     # apagar
     elif op == "5":
-        if len(titulos) == 0:
-            print("nenhum artigo ainda")
+        n = input("qual artigo quer apagar (1 a 5)? ")
+        if n == "1" and titulo1 != "":
+            titulo1 = ""
+            texto1 = ""
+            print("artigo apagado!")
+        elif n == "2" and titulo2 != "":
+            titulo2 = ""
+            texto2 = ""
+            print("artigo apagado!")
+        elif n == "3" and titulo3 != "":
+            titulo3 = ""
+            texto3 = ""
+            print("artigo apagado!")
+        elif n == "4" and titulo4 != "":
+            titulo4 = ""
+            texto4 = ""
+            print("artigo apagado!")
+        elif n == "5" and titulo5 != "":
+            titulo5 = ""
+            texto5 = ""
+            print("artigo apagado!")
         else:
-            for i in range(len(titulos)):
-                print(i + 1, "-", titulos[i])
-            n = input("qual artigo quer apagar? ")
-            if n.isdigit() and int(n) >= 1 and int(n) <= len(titulos):
-                n = int(n) - 1
-                titulos.pop(n)
-                textos.pop(n)
-                print("artigo apagado!")
-            else:
-                print("numero invalido")
+            print("artigo nao existe")
 
     # ver todos
     elif op == "6":
-        if len(titulos) == 0:
+        total = 0
+        if titulo1 != "":
+            print(1, "-", titulo1)
+            total = total + 1
+        if titulo2 != "":
+            print(2, "-", titulo2)
+            total = total + 1
+        if titulo3 != "":
+            print(3, "-", titulo3)
+            total = total + 1
+        if titulo4 != "":
+            print(4, "-", titulo4)
+            total = total + 1
+        if titulo5 != "":
+            print(5, "-", titulo5)
+            total = total + 1
+        if total == 0:
             print("nenhum artigo ainda")
-        else:
-            for i in range(len(titulos)):
-                print(i + 1, "-", titulos[i])
 
     # sair
     elif op == "0":
