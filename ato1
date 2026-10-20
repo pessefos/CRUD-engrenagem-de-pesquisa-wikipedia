@@ -79,21 +79,21 @@ while rodando:
 
     # pesquisar
     elif op == "3":
-        busca = input("pesquisar: ").lower()
+        busca = input("pesquisar: ")
         achou = 0
-        if titulo1 != "" and (busca in titulo1.lower() or busca in texto1.lower()):
+        if titulo1 != "" and (busca in titulo1 or busca in texto1):
             print(1, "-", titulo1)
             achou = achou + 1
-        if titulo2 != "" and (busca in titulo2.lower() or busca in texto2.lower()):
+        if titulo2 != "" and (busca in titulo2 or busca in texto2):
             print(2, "-", titulo2)
             achou = achou + 1
-        if titulo3 != "" and (busca in titulo3.lower() or busca in texto3.lower()):
+        if titulo3 != "" and (busca in titulo3 or busca in texto3):
             print(3, "-", titulo3)
             achou = achou + 1
-        if titulo4 != "" and (busca in titulo4.lower() or busca in texto4.lower()):
+        if titulo4 != "" and (busca in titulo4 or busca in texto4):
             print(4, "-", titulo4)
             achou = achou + 1
-        if titulo5 != "" and (busca in titulo5.lower() or busca in texto5.lower()):
+        if titulo5 != "" and (busca in titulo5 or busca in texto5):
             print(5, "-", titulo5)
             achou = achou + 1
         if achou == 0:
