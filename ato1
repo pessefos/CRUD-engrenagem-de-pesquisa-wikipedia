@@ -1,1 +1,109 @@
 
+titulos = []
+textos = []
+rodando = True
+
+while rodando:
+    print()
+    print("--- WIKIPEDIA ---")
+    print("1 - criar artigo")
+    print("2 - ler artigo")
+    print("3 - pesquisar")
+    print("4 - editar artigo")
+    print("5 - apagar artigo")
+    print("6 - ver todos")
+    print("0 - sair")
+    op = input("opcao: ")
+
+    # criar
+    if op == "1":
+        titulo = input("titulo: ")
+        texto = input("texto: ")
+        if titulo == "" or texto == "":
+            print("nao pode ficar vazio")
+        else:
+            titulos.append(titulo)
+            textos.append(texto)
+            print("artigo criado!")
+
+    # ler
+    elif op == "2":
+        if len(titulos) == 0:
+            print("nenhum artigo ainda")
+        else:
+            for i in range(len(titulos)):
+                print(i + 1, "-", titulos[i])
+            n = input("qual artigo? ")
+            if n.isdigit() and int(n) >= 1 and int(n) <= len(titulos):
+                n = int(n) - 1
+                print()
+                print(titulos[n])
+                print(textos[n])
+            else:
+                print("numero invalido")
+
+    # pesquisar
+    elif op == "3":
+        busca = input("pesquisar: ").lower()
+        achou = 0
+        for i in range(len(titulos)):
+            if busca in titulos[i].lower() or busca in textos[i].lower():
+                print(i + 1, "-", titulos[i])
+                achou = achou + 1
+        if achou == 0:
+            print("nao encontrei nada")
+        else:
+            print(achou, "resultado(s)")
+
+    # editar
+    elif op == "4":
+        if len(titulos) == 0:
+            print("nenhum artigo ainda")
+        else:
+            for i in range(len(titulos)):
+                print(i + 1, "-", titulos[i])
+            n = input("qual artigo quer editar? ")
+            if n.isdigit() and int(n) >= 1 and int(n) <= len(titulos):
+                n = int(n) - 1
+                novo_titulo = input("novo titulo: ")
+                novo_texto = input("novo texto: ")
+                if novo_titulo == "" or novo_texto == "":
+                    print("nao pode ficar vazio")
+                else:
+                    titulos[n] = novo_titulo
+                    textos[n] = novo_texto
+                    print("artigo editado!")
+            else:
+                print("numero invalido")
+
+    # apagar
+    elif op == "5":
+        if len(titulos) == 0:
+            print("nenhum artigo ainda")
+        else:
+            for i in range(len(titulos)):
+                print(i + 1, "-", titulos[i])
+            n = input("qual artigo quer apagar? ")
+            if n.isdigit() and int(n) >= 1 and int(n) <= len(titulos):
+                n = int(n) - 1
+                titulos.pop(n)
+                textos.pop(n)
+                print("artigo apagado!")
+            else:
+                print("numero invalido")
+
+    # ver todos
+    elif op == "6":
+        if len(titulos) == 0:
+            print("nenhum artigo ainda")
+        else:
+            for i in range(len(titulos)):
+                print(i + 1, "-", titulos[i])
+
+    # sair
+    elif op == "0":
+        rodando = False
+        print("tchau!")
+
+    else:
+        print("opcao invalida")
