@@ -192,63 +192,57 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 ## 🟢 CICLO 02 — 19/08 — Variáveis, tipos de dados e entrada/saída
 
-<details>
-<summary>📘 Orientações do Ciclo 02 — Campo 01 (sem consulta) e Campo 02 (pesquisa)</summary>
-
-**Campo 01 — Instrumento de entrada** · *sem consulta · faça primeiro*
-- Preencha **antes de tudo**, em um bloco contínuo de cerca de 15 minutos, sem internet, sem material, sem IA e sem colegas, depois de conhecer a questão-problema e a primeira amostra de dados do seu app. Depois do Campo 01 você pode consultar o que quiser.
-- **1a.** Liste pelo menos **3 objetos de conhecimento** que você acha que precisa dominar para resolver o problema. Use o vocabulário técnico da área. *Não precisa acertar tudo — o Campo 07 vai mostrar o quanto você evoluiu.*
-- **1b.** Liste pelo menos **3 lacunas**: o que você **não sabe** e precisa descobrir, com precisão (ruim: "não sei programar"; bom: "não sei como validar a entrada para impedir que o usuário digite texto onde espero número").
-- **1c.** Escreva sua **hipótese inicial** em até 5 linhas: o que você acha que está causando as falhas do CRUD e por quê.
-- Faça o commit **logo ao terminar**. Depois, **não edite** o Campo 01.
-
-**Campo 02 — Aprofundamento** · *AV Qualis · segunda 16/11, 23h59*
-- Preencha **depois do Campo 01, com pesquisa real**, e seja coerente com ele.
-- **2a.** Pelo menos **2 referências** (livro, documentação, vídeo, artigo), cada uma com a **contribuição** concreta para a sua solução. Não basta listar o título.
-- **2b.** **Hipótese revisada:** o que mudou em relação ao Campo 01 e **por quê**. Se não mudou nada, explique por que a pesquisa confirmou a hipótese.
-- **2c.** **Dimensionamento inicial de recursos** (mínimo 3 itens), com quantidade estimada e justificativa técnica. Exemplos de recursos no seu contexto: horas de estudo, número de casos de teste, módulos/arquivos do projeto, dados de teste, bibliotecas.
-</details>
-
 ### 🧩 CAMPO 01 — Instrumento de entrada
 *Grupo 1 | Prazo segunda 16/11, 23h59 | SEM CONSULTA*
+*(preenchimento tardio, registrado em 15/11, sem consulta a material, internet, IA ou colegas)*
 
 **1a. Objetos de conhecimento identificados (mínimo 3, com vocabulário técnico):**
-1. _…_
-2. _…_
-3. _…_
-4. _…_ *(opcional)*
+1. Variáveis e atribuição: armazenar título e texto do artigo durante a execução.
+2. Tipos de dados primitivos (`str`, `int`) e entrada/saída com `input()` e `print()`.
+3. Estruturas condicionais (`if`, `elif`, `else`) para decidir qual operação do menu executar.
+4. Laço de repetição `while`, para manter o menu rodando até o usuário escolher sair.
 
 **1b. Lacunas — o que não sei e preciso descobrir (mínimo 3, com precisão técnica):**
-1. _…_
-2. _…_
-3. _…_
+1. Não sei como armazenar vários artigos sem criar um par de variáveis para cada um.
+2. Não sei se o valor digitado em `input()` vem como texto ou como número, nem quando preciso converter.
+3. Não sei como impedir que o usuário cadastre título ou texto vazio, nem como tratar uma posição que não existe.
+4. Não sei como procurar uma palavra dentro de um texto para montar a pesquisa.
 
 **1c. Hipótese inicial em até 5 linhas — com lógica da área de formação:**
 
-> _…_
+> Acredito que as falhas do CRUD virão de entradas inesperadas do usuário (campo vazio, posição inexistente) e do limite de espaço para guardar os artigos. Como ainda só conheço variáveis simples, penso que cada artigo precisará de variáveis próprias, o que vai deixar o código repetitivo. Espero que condicionais bem ordenadas resolvam a validação.
 
 ### 🧩 CAMPO 02 — Aprofundamento pós-aula
 *AV Qualis — Grupo 1 | Segunda 16/11, 23h59*
 
-> **Preenchido depois do Campo 01, com pesquisa real. Deve ser coerente com o Campo 01. Incoerência = evidência de autoria externa.**
-
 **2a. Aprofundamento dos objetos de conhecimento (mínimo 2 referências com síntese da contribuição para a solução):**
 
-- **Referência 1:** _…_ — **Contribuição:** _…_
-- **Referência 2:** _…_ — **Contribuição:** _…_
+- **Referência 1:** DOWNEY, Allen B. *Pense em Python* — cap. 2 (variáveis, expressões e instruções) e cap. 5 (condicionais). — **Contribuição:** Entendi que `input()` sempre devolve `str`, e por isso, no menu do Wikicrud, comparo a opção como texto (`op == "1"`) em vez de número. Também entendi que a cadeia `if/elif/else` avalia as condições em ordem e executa só o primeiro bloco verdadeiro, o que sustenta as 7 opções do menu sem que duas rodem ao mesmo tempo.
+- **Referência 2:** Documentação oficial do Python 3 — *Built-in Functions* (`input`, `print`) e *Built-in Types* (operações com strings, operador `in`). — **Contribuição:** Confirmei que `busca in titulo1` testa se o texto digitado é uma *substring* do título, e que a comparação diferencia maiúsculas de minúsculas. Isso explica o comportamento da minha pesquisa e mostra uma limitação: buscar "python" não encontra "Python".
 
 **2b. Hipótese revisada — o que mudou em relação ao Campo 01 e por quê:**
 
-> _…_
+> A pesquisa respondeu duas lacunas do Campo 01. (1) `input()` devolve sempre texto, então qualquer comparação ou cálculo numérico exige conversão com `int()`. (2) O operador `in` resolve a busca por trecho de texto. Quanto à lacuna 1 do Campo 01 (armazenar vários artigos), confirmei na prática que guardar tudo em variáveis separadas (`titulo1`, `texto1`...) obriga a repetir o mesmo bloco `if/elif` cinco vezes em cada operação e limita o CRUD a 5 artigos. Minha hipótese se manteve (o problema virá da repetição e das entradas inválidas), e agora a vejo mais precisa. Espero que listas e laços, vistos nos próximos ciclos, eliminem essa duplicação.
 
 **2c. Dimensionamento inicial de recursos (recurso, quantidade estimada, justificativa técnica — mínimo 3 itens):**
 
 | RECURSO / MATERIAL / INSUMO | QUANTIDADE ESTIMADA | JUSTIFICATIVA TÉCNICA |
 |---|---|---|
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
+| Variáveis de armazenamento | 10 (5 pares título/texto) | Sem listas ainda, cada artigo ocupa duas variáveis. O valor `""` marca a posição como livre. |
+| Ramificações do menu (`elif`) | 7 (6 operações + sair) | Cada operação do CRUD é um ramo da cadeia condicional dentro do laço `while`. |
+| Casos de teste manuais | 17 (3 para criar, ler, pesquisar, editar e apagar; 2 para ver todos) | Cobrir caminho normal, entrada vazia e posição inexistente/fora de 1–5. |
+| Horas de estudo | 6 h (conversão de tipos, condicionais, `while`) | Base para corrigir os desvios que aparecerem nos testes. |
+| Arquivo do projeto | 1 arquivo Python (~190 linhas) | Concentra o CRUD enquanto não há funções (Ciclo 10). |
+| Repositório GitHub | 1 repositório, 1 branch por ato | Os commits pequenos servem de evidência do processo. |
+
+#### Registro do Ciclo 02 — 19/08
+1. **Desafio do ciclo (em 1 frase):** Usar variáveis, tipos de dados e entrada/saída para construir o menu e as primeiras operações do Wikicrud.
+2. **O que implementei (commits / arquivos / links):** Arquivo `ato1` na branch `act-1`: variáveis `titulo1..5` e `texto1..5`, menu com `print()`/`input()` e as operações criar, ler, pesquisar, editar, apagar e ver todos. Repositório: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia
+3. **Objeto(s) de conhecimento mobilizado(s):** Variáveis e atribuição, tipo `str`, `input()` e `print()`, comparação de strings (`==`, `!=`), operador `in` para busca em texto, contador inteiro (`achou`, `total`).
+4. **Desvio ou erro encontrado + causa técnica:** `input()` devolve `str`, então a escolha do artigo (`n`) precisa ser comparada com `"1"`, não com `1`. Comparar `str` com `int` faz a condição ser sempre falsa. Além disso, a pesquisa com `in` diferencia maiúsculas de minúsculas.
+5. **Decisão de ajuste + fonte:** Comparar as opções como texto (`op == "1"`) e validar campo vazio com `== ""` antes de gravar. Fonte: *Pense em Python*, cap. 2, e documentação do Python 3 (*Built-in Types*).
+6. **Feedback recebido e o que mudei:** _(preencha só se houve feedback do professor ou de colega; caso contrário, escreva "Sem feedback externo neste ciclo; projeto mantido".)_
+7. **Próximo passo:** Aprofundar as condicionais (Ciclo 04) para tratar melhor as entradas inválidas e, depois, trocar as variáveis soltas por listas.
 
 #### Registro do Ciclo 02 — 19/08
 1. **Desafio do ciclo (em 1 frase):** _…_
