@@ -23,14 +23,14 @@
 
 | Campo | Preencha |
 |---|---|
-| **Nome do estudante** | _escreva aqui_ |
-| **Curso / Módulo** | _ex.: ADS · 2º período_ |
+| **Nome do estudante** | _Caio Rafael Tavares da Silva_ |
+| **Curso / Módulo** | _Engenharia de Software, 2º periodo_ |
 | **Unidade curricular** | Algoritmos e Programação — UnDB 2026.2 |
 | **Professor** | Rondineli Seba Salomão |
-| **App-base do meu CRUD** | _ex.: um app de delivery, um app de músicas…_ |
-| **Link do meu repositório** | _https://github.com/…_ |
-| **Dupla de revisão (Campo 05)** | _nome do colega cujo CRUD vou revisar / que revisa o meu_ |
-| **Função neste ciclo** | _Autor do meu CRUD · Revisor do CRUD de um colega_ |
+| **App-base do meu CRUD** | _ex.:Engrenagem de Pesquisa da Wikipedia_ |
+| **Link do meu repositório** | _[https://github.com/](https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia)…_ |
+| **Dupla de revisão (Campo 05)** | _Joás Franco_ |
+| **Função neste ciclo** | _Caio Rafael · Joás Franco_ |
 
 ---
 
@@ -106,7 +106,7 @@ Atualize a cada commit (troque ⬜ por ✅).
 
 | Grupo | Item | Prazo | Preenchido | Commit |
 |:--:|---|---|:--:|:--:|
-| 1 | Identificação | 16/11 | ⬜ | ⬜ |
+| 1 | Identificação | 16/11 | ✅ | ✅ |
 | 1 | Registros dos Ciclos 01, 02, 03 e 04 | 16/11 | ⬜ | ⬜ |
 | 1 | Campo 01 — Instrumento de entrada | 16/11 | ⬜ | ⬜ |
 | 1 | Campo 02 — Aprofundamento | 16/11 | ⬜ | ⬜ |
@@ -182,7 +182,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 01 — 12/08
-1. **Desafio do ciclo (em 1 frase):** _…_
+1. **Desafio do ciclo (em 1 frase):**Preparação para o desenvolvimento do crud com Git, Github e VS Code, inspirado na engrenagem de pesquisa da wikipedia _…_
 2. **O que implementei (commits / arquivos / links):** _…_
 3. **Objeto(s) de conhecimento mobilizado(s):** _…_
 4. **Desvio ou erro encontrado + causa técnica:** _…_
