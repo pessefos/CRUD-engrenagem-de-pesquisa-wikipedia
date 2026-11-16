@@ -182,13 +182,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 01 — 12/08
-1. **Desafio do ciclo (em 1 frase):**Preparação para o desenvolvimento do crud com Git, Github e VS Code, inspirado na engrenagem de pesquisa da wikipedia _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):**Preparação para o desenvolvimento do crud com Git, Github e VS Code, inspirado na engrenagem de pesquisa da wikipedia. Ultilizei extensões de Python para me auxiliar no projeto. _…_
+2. **O que implementei (commits / arquivos / links):**Foi realizado a definição do projeto de um crud em Python inspirado na engrenagem de pesquisa da wikipedia.Também foi planejada a estrutura do repositório e a configuração do ambiente no Vscode.  _…_
+3. **Objeto(s) de conhecimento mobilizado(s):**Possuía conhecimento limitado em python, com poucas familiaridade com lógica e programação. Com relação ao Git e Github, tinha ciência apenas de como criar repositórios, mas não dominava as suas outras funcionalidades, como commits e gerenciamento geral.  _…_
+4. **Desvio ou erro encontrado + causa técnica:**Não foram encontradas dificuldades, tanto na instalação ou configuração do ambiente. _…_
+5. **Decisão de ajuste + fonte:**Decidi organizar o Wikicrud em apenas uma branche, mas com o passar do tempo decidi criar atos, do 1 até o 3 para organizar e no final dar merge com a main. _…_
+6. **Feedback recebido e o que mudei:**Até o momento não tive feedbacks, o projeto foi mantido.  _…_
+7. **Próximo passo:**Começar a aplicar os conhecimento adquiridos, aprofundando a lógica de programação gradualmente.  _…_
 
 ## 🟢 CICLO 02 — 19/08 — Variáveis, tipos de dados e entrada/saída
 
