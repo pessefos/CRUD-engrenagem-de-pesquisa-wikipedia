@@ -253,45 +253,27 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 6. **Feedback recebido e o que mudei:** _…_
 7. **Próximo passo:** _…_
 
-## 🟢 CICLO 03 — 26/08 — Operadores, fluxogramas e paradigmas
-
-<details>
-<summary>📘 Orientações do Ciclo 03 — Registro (Grupo 1)</summary>
-
-- Neste grupo você preenche **apenas o Registro do Ciclo 03**. O **Checkpoint Conceitual** e os **Campos 03 e 04** deste ciclo estão no **Grupo 2**.
-- Item 3: nomeie os **operadores** (aritméticos, relacionais, lógicos) e os **tipos** que usou. Se montou fluxogramas, cite o que o fluxograma ajudou a perceber.
-- Item 4: registre erros de precedência de operadores, divisão por zero ou confusão entre `=` e `==`, com a causa técnica.
-</details>
-
 #### Registro do Ciclo 03 — 26/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
-## 🟢 CICLO 04 — 02/09 — Estruturas condicionais: `if`, `elif`, `else`
-
-<details>
-<summary>📘 Orientações do Ciclo 04</summary>
-
-- **Sem Campo do Protocolo hoje.** Preencha o Registro do Ciclo 04.
-- Conecte **cada condicional** do seu CRUD a uma **regra de negócio** (ex.: "preço não pode ser negativo").
-- Se já recebeu o lote de dados com defeito, procure **qual registro quebra qual condição** e registre o item 4 com a **causa técnica** (ex.: valor `None`, texto vazio, número negativo, divisão por zero).
-- No item 5, cite a fonte da decisão: livro (*Pense em Python*), documentação ou exercício que você resolveu.
-- Compare com o **Campo 02**: o desvio de hoje já estava previsto no seu dimensionamento?
-</details>
+1. **Desafio do ciclo (em 1 frase):** Aplicar operadores aritméticos, relacionais e lógicos do Python às regras do menu e da validação do Wikicrud, e entender o fluxo do programa como paradigma imperativo.
+2. **O que implementei (commits / arquivos / links):** No `ato1` (branch `act-1`): `==` e `!=` no menu e na validação; `or` e `and` em criar, editar e pesquisar; operador `in` na pesquisa; `+` nos contadores `achou` e `total`. Repositório: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia
+3. **Objeto(s) de conhecimento mobilizado(s):** Operadores relacionais (`==`, `!=`) com `str`; operadores lógicos (`and`, `or`) e precedência entre eles; operador de pertinência `in` em strings; operador aritmético `+` em `achou = achou + 1`; tipos `str`, `int` (contadores) e `bool` (`rodando`). Paradigma imperativo/procedural: instruções em sequência que alteram o estado das variáveis, controladas por `while` e `if`. [Se montou um fluxograma do menu, acrescente o que ele mostrou; se não, remova esta frase.]
+4. **Desvio ou erro encontrado + causa técnica:** Na pesquisa, `titulo1 != "" and (busca in titulo1 or busca in texto1)` depende dos parênteses. Sem eles, o Python lê `(titulo1 != "" and busca in titulo1) or busca in texto1`, porque `and` tem precedência sobre `or`. Testei: com uma posição vazia e busca vazia, o resultado é `False` com parênteses e `True` sem eles, e uma posição vazia entraria na lista.
+5. **Decisão de ajuste + fonte:** Manter os parênteses explícitos nas cinco condições da pesquisa, para que posição vazia nunca seja listada. Fontes: *Pense em Python*, cap. 5 (operadores lógicos), e Python Language Reference, seção *Operator precedence*.
+6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
+7. **Próximo passo:** Estudar as condicionais `if/elif/else` e ligar cada uma a uma regra de negócio do Wikicrud (Ciclo 04).
 
 #### Registro do Ciclo 04 — 02/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Ligar cada condicional do Wikicrud a uma regra de negócio e descobrir qual entrada quebra qual condição.
+2. **O que implementei (commits / arquivos / links):** No `ato1`, as regras já implementadas por condicionais: RN1 título e texto não podem ser vazios (`titulo == "" or texto == ""`); RN2 limite de 5 artigos (cadeia de `elif` terminando em "acabou o espaco"); RN3 só ler, editar e apagar artigo existente (`n == "1" and titulo1 != ""`); RN4 opção de menu inválida cai no `else`; RN5 a pesquisa só considera posições ocupadas; RN6 mensagens "nao encontrei nada" e "nenhum artigo ainda" quando não há resultado.
+3. **Objeto(s) de conhecimento mobilizado(s):** Estruturas `if/elif/else`; cadeia `elif`, em que só o primeiro bloco verdadeiro executa (usada no menu e em criar); `if` independentes (usados em pesquisar e ver todos, porque várias posições podem satisfazer a condição ao mesmo tempo); expressões booleanas; string vazia `""` como valor sentinela de posição livre; validação de entrada.
+4. **Desvio ou erro encontrado + causa técnica:**
+   - (a) **Busca vazia:** apertar Enter na pesquisa lista todos os artigos, pois `"" in qualquer_string` é `True` em Python.
+   - (b) **Só espaços:** título ou texto `"   "` passa na validação e cria um artigo "invisível", pois `"   " == ""` é `False`.
+   - (c) **Maiúsculas e minúsculas:** buscar "python" não encontra "Python", pois a comparação com `in` diferencia maiúsculas de minúsculas.
+   - **Comparação com o Campo 02:** entrada vazia e posição inexistente já estavam previstas nos casos de teste; (a), (b) e (c) não estavam.
+5. **Decisão de ajuste + fonte:** Registrar os três desvios e tratá-los no próximo ato: (a) acrescentar uma condicional que recusa `busca == ""`; (b) comparar o texto após remover espaços com `strip()`; (c) comparar em minúsculas com `lower()`. Fontes: *Pense em Python*, cap. 5 (condicionais) e cap. 8 (strings), e documentação do Python, métodos de `str`.
+6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
+7. **Próximo passo:** Corrigir (a), (b) e (c) no `ato2` e estudar laços de repetição (Ciclo 06) para reduzir a repetição dos blocos por posição.
 
 ---
 
