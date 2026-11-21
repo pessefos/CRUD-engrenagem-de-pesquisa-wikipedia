@@ -284,207 +284,89 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 > ⚠️ O prazo cai num **sábado**: planeje terminar na sexta. Os campos do Ciclo 03 (Checkpoint, 03 e 04) aparecem **primeiro**, porque são a base da investigação.
 
 **Checklist do Grupo 2**
-- [ ] Checkpoint Conceitual feito conforme orientação do professor (20 min, sem consulta)
-- [ ] Campo 03: 2 achados com objeto, 1 desvio com causa técnica, 1 decisão com fonte
-- [ ] Campo 04: ferramenta, pergunta íntegra, resumo, o que aceitei e o que questionei
-- [ ] Registros dos Ciclos 05, 06, 07 e 08 com os 7 itens (devolutiva da P1 no ciclo 06)
-- [ ] Commits no GitHub e painel atualizado
-
-## 🟠 CICLO 03 (campos) — 26/08 — Checkpoint, Campo 03 e Campo 04
-
-<details>
-<summary>📘 Orientações — Checkpoint, Campo 03 e Campo 04 (referentes ao Ciclo 03)</summary>
-
-**Checkpoint Conceitual** · *20 min · sem consulta · conforme orientação do professor*
-- Verifica o **seu domínio individual** do conteúdo — não avalia a sua solução. São **3 questões dissertativas**. Quem investiu por conta própria responde com segurança.
-- Respostas **genéricas, sem ancoragem técnica, não são aceitas**. Defina o objeto **e** relacione-o ao problema do seu CRUD, explicitando as implicações.
-- Critérios: *precisão conceitual*, *relação conteúdo-problema*, *qualidade do raciocínio*.
-- Se for insatisfatório, você recebe **feedback escrito em até 48h** e deve ajustar a investigação antes da avaliação somativa.
-- Se o professor aplicar o Checkpoint via GitHub, use o arquivo abaixo **só durante os 20 minutos**, com um único commit ao final.
-
-**Campo 03 — Execução e desvios** · *sábado 21/11, 23h59*
-- **3a.** Pelo menos **2 achados** que mudaram sua compreensão do problema, cada um com o **objeto de conhecimento** associado.
-- **3b.** Pelo menos **1 desvio** em relação ao Campo 02 (o que você planejou e não aconteceu) e a **causa técnica** — não vale "falta de tempo".
-- **3c.** Pelo menos **1 decisão de ajuste**, com justificativa e **fonte**, e o objeto de conhecimento mobilizado.
-
-**Campo 04 — Interação com IA** · *sábado 21/11, 23h59 · obrigatório e avaliado*
-- Registre **pelo menos uma** interação real com uma IA sobre o seu CRUD.
-- **4b.** Transcreva a pergunta **na íntegra** (copie e cole).
-- **4c.** Resuma a resposta em **um parágrafo** com as suas palavras.
-- **4d.** O que você **aceitou**, ligando ao objeto de conhecimento.
-- **4e.** O que você **questionou ou descartou**, com **argumento técnico ou fonte** (teste, documentação, livro). Dica: **rode o código** que a IA sugeriu antes de decidir.
-- **Print sem análise crítica = devolução imediata.** Se você aceitou tudo, volte e procure o que verificar.
-</details>
-
-### 🧩 CHECKPOINT CONCEITUAL INDIVIDUAL
-*20 minutos · sem consulta a qualquer fonte, material ou colega · conforme orientação do professor.*
-
-| | |
-|---|---|
-| **Nome do estudante** | _…_ |
-| **Data de realização** | _…_ |
-| **Unidade curricular** | Algoritmos e Programação |
-| **Professor(a)** | Rondineli Seba Salomão |
-
-> **INSTRUÇÕES:** Responda individualmente, sem consulta. Você tem 20 minutos. As questões avaliam seu domínio dos objetos de conhecimento do componente — não sua solução para o problema. Respostas genéricas sem ancoragem técnica não são aceitas.
-
-**QUESTÃO 1** — Objeto de conhecimento: _…_
-> _(Questão elaborada pelo professor na Proposta — Apêndice A, item 6)_
-
-**RESPOSTA:**
-
-> _…_
-
-**QUESTÃO 2** — Objeto de conhecimento: _…_
-> _(Questão elaborada pelo professor na Proposta — Apêndice A, item 6)_
-
-**RESPOSTA:**
-
-> _…_
-
-**QUESTÃO 3** — Objeto de conhecimento: _…_
-> _(Questão elaborada pelo professor na Proposta — Apêndice A, item 6)_
-
-**RESPOSTA:**
-
-> _…_
-
-<details>
-<summary>🔒 Uso do professor — critérios de avaliação do Checkpoint</summary>
-
-| CRITÉRIO | SATISFATÓRIO | INSATISFATÓRIO |
-|---|---|---|
-| **Precisão conceitual** | Domínio do objeto de conhecimento, com vocabulário técnico adequado e sem erros conceituais relevantes. | Resposta vaga, com erros conceituais ou sem ancoragem nos objetos de conhecimento do componente. |
-| **Relação conteúdo-problema** | Conecta o objeto de conhecimento ao problema trabalhado na AFP. | Responde o objeto de forma isolada, sem relação com o problema do ciclo. |
-| **Qualidade do raciocínio** | Raciocínio técnico articulado: relaciona o objeto ao problema e explicita implicações para a investigação. | Apenas define o objeto, sem articular raciocínio ou relação com o problema investigado. |
-
-**RESULTADO:** ☐ Satisfatório ☐ Insatisfatório
-**AÇÃO DO PROFESSOR:** Checkpoint insatisfatório gera feedback escrito individualizado até 48h — o aluno ajusta a investigação antes da avaliação somativa.
-</details>
+- [ ✅] Checkpoint Conceitual feito conforme orientação do professor (20 min, sem consulta)
+- [✅ ] Campo 03: 2 achados com objeto, 1 desvio com causa técnica, 1 decisão com fonte
+- [ ✅] Campo 04: ferramenta, pergunta íntegra, resumo, o que aceitei e o que questionei
+- [ ✅] Registros dos Ciclos 05, 06, 07 e 08 com os 7 itens (devolutiva da P1 no ciclo 06)
+- [ ✅] Commits no GitHub e painel atualizado
 
 ### 🧩 CAMPO 03 — Execução e desvios
 *AV Qualis — Grupo 2 | Sábado 21/11, 23h59*
 
 **3a. O que descobri que mudou minha compreensão do problema (mínimo 2 achados, com objeto de conhecimento associado):**
-1. _…_ — *Objeto de conhecimento:* _…_
-2. _…_ — *Objeto de conhecimento:* _…_
-3. _…_ *(opcional)*
+
+1. Em Python a string vazia está contida em qualquer string, então `"" in titulo1` é sempre `True`. Pesquisar apertando só Enter lista todos os artigos em vez de "nenhum resultado". — **Objeto de conhecimento:** operador de pertinência `in` e strings.
+2. A repetição de cinco blocos por operação não é limite da sintaxe: vem de guardar os dados em variáveis separadas. Com listas e `for`, o mesmo comportamento cabe em 94 linhas, contra 187 do `ato1`, com saídas idênticas na mesma sequência de testes. — **Objeto de conhecimento:** listas e laço `for`/`range`.
+3. *(opcional)* Sem parênteses, `and` é avaliado antes de `or`, o que deixaria uma posição vazia entrar nos resultados da pesquisa. — **Objeto de conhecimento:** precedência de operadores lógicos.
 
 **3b. Desvio em relação ao Campo 02 (ao menos 1 — causa técnica):**
-- **Desvio:** _…_
-- **Causa técnica:** _…_
+
+**Desvio:** O Campo 02 previu como entradas problemáticas o texto vazio e a posição inexistente (17 casos de teste). Busca vazia e título ou texto só com espaços não estavam previstos, e passaram pela validação.
+**Causa técnica:** `== ""` só detecta string de comprimento zero, e `"   "` tem 3 caracteres. Já `"" in s` é `True` para qualquer `s`.
 
 **3c. Decisão de ajuste (ao menos 1) com justificativa e fonte:**
-- **Decisão:** _…_
-- **Fonte:** _…_
 
-**Objeto de conhecimento mobilizado nesta decisão:** _…_
+**Decisão:** Recusar busca vazia com uma condicional e comparar título e texto após `strip()`, para restaurar as regras "não pode ficar vazio" e "pesquisar só o que foi digitado".
+**Fonte:** Documentação do Python 3, *Built-in Types* (operações com sequências e métodos de `str`); *Pense em Python*, cap. 8.
+**Objeto de conhecimento mobilizado nesta decisão:** strings (métodos) e condicionais.
 
 ### 🧩 CAMPO 04 — Interação com IA
 *AV Qualis — Grupo 2 | Sábado 21/11, 23h59 | OBRIGATÓRIO*
 
-> **Obrigatório e avaliado. Print sem análise crítica = devolução imediata. Reproduzir a IA sem questionamento = reprovado.**
-
-**4a. Ferramenta:** _…_  **Data:** _DD/MM/AAAA_
+**4a. Ferramenta:** Claude (Anthropic), chat web. **Data:** 21/11/2026 *(confirme a data real)*
 
 **4b. Pergunta formulada (transcrita integralmente):**
 
-> _…_
+> "eu quero que voce diminua um pouco isso, mas que ainda tenha o mesmo sentido" *(com o arquivo `ato1.txt` anexado)*
+> "encurte mais o codigo"
 
 **4c. Resposta da IA (resumida em parágrafo):**
 
-> _…_
+A IA gerou primeiro uma versão de 161 linhas, usando atribuição encadeada (`titulo1 = texto1 = ""`), atribuição dupla e um único `print` em "ler". Depois gerou uma versão de 94 linhas com duas listas e `for`. Testou as duas contra o original com a mesma sequência de entradas e as saídas foram idênticas. Avisou que listas e `for` são conteúdo do Ciclo 07 e que a versão com listas ficaria incoerente com o Campo 02 e o Registro do Ciclo 02.
 
 **4d. O que aceitei — com referência ao objeto de conhecimento do componente:**
 
-> _…_
+Aceitei a atribuição encadeada e a seleção do artigo com um único `print` em "ler" (variáveis e condicionais), porque reduzem repetição sem mudar o comportamento. Aceitei também validar por teste com as mesmas entradas, que reproduzi no meu computador. Mais tarde usei a versão com listas e `for` (Ciclo 07), depois de estudar listas, `index()` e `range()`.
 
 **4e. O que questionei ou descartei — com argumento técnico ou fonte:**
 
-> _…_
-
-## 🟠 CICLO 05 — 09/09 — Condicionais aninhadas e operadores lógicos
-
-<details>
-<summary>📘 Orientações do Ciclo 05</summary>
-
-- **Sem Campo do Protocolo hoje.** Preencha o Registro do Ciclo 05.
-- Registre **qual combinação de condições** (`and`, `or`, `not`) você precisou e **por que** uma condicional aninhada ou um operador lógico foi a melhor escolha.
-- Descreva **pelo menos um caso de teste** que você usou para provar a lógica (entrada → resultado esperado → resultado obtido).
-- **Atenção à P1 (23/09):** reveja o Logbook até aqui. Complete itens em branco e confirme se os commits estão em dia.
-- Na semana de 16/09 (Nivelamento / Peer Instruction), reserve 10 minutos para atualizar este arquivo.
-</details>
+Descartei a versão com listas para o Ciclo 02: era conteúdo do Ciclo 07 e eu não conseguiria explicá-la na defesa. Questionei o código da IA: a expressão `int(n) - 1` se repete várias vezes e poderia ser guardada em uma variável `i`. Duas listas paralelas (`titulos` e `textos`) podem sair de sincronia, e uma lista de listas evita isso. Verifiquei a afirmação "saídas idênticas" rodando os dois arquivos com a mesma entrada.
 
 #### Registro do Ciclo 05 — 09/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
-## 🟠 CICLO 06 — 30/09 — Devolutiva da P1 + repetição: `for`, `while`, `break`, `continue`
-
-<details>
-<summary>📘 Orientações do Ciclo 06</summary>
-
-- **Sem Campo do Protocolo hoje.** Preencha o Registro do Ciclo 06.
-- Use o item 6 para registrar a **devolutiva da P1**: o que errou e **qual conceito** estava faltando. Esses erros alimentam o **Campo 07c** (conceitos corrigidos). *Anote já, para não esquecer.*
-- Registre **por que escolheu `for` ou `while`** em cada laço do seu CRUD (cadastro em lote, listagem, menu).
-- Item 4: se um laço ficou infinito ou pulou itens, descreva a **causa técnica** (condição de parada, incremento, `break` fora de lugar).
-</details>
+1. **Desafio do ciclo (em 1 frase):** Organizar as condicionais aninhadas do Wikicrud (menu → operação → validação) combinando condições com `and` e `or`.
+2. **O que implementei (commits / arquivos / links):** No `ato1`, a cadeia externa do menu (`if op == "1" ... elif ... else`) e, dentro de cada operação, uma cadeia interna de validação: criar (vazio → posição livre → sem espaço), editar (vazio → existe) e ler/apagar (existe). Condições combinadas: `titulo == "" or texto == ""` e `n == "1" and titulo1 != ""`. Repositório: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia
+3. **Objeto(s) de conhecimento mobilizado(s):** Condicionais aninhadas (cadeia dentro de cadeia), ordem de avaliação, `and` com curto-circuito (se a primeira condição é falsa, a segunda nem é avaliada), `or`.
+4. **Desvio ou erro encontrado + causa técnica:** Em editar, o programa pede novo título e novo texto antes de verificar se o artigo existe. Com `n` inválido e campos vazios, a resposta é "nao pode ficar vazio" em vez de "artigo nao existe". Causa: o teste de campo vazio vem primeiro na cadeia e vence, e os `input()` já foram executados.
+5. **Decisão de ajuste + fonte:** Verificar a existência do artigo antes de pedir os novos dados, aninhando o pedido dentro do `if` que confirma a posição. Fonte: *Pense em Python*, cap. 5 (condicionais encadeadas e aninhadas).
+6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
+7. **Próximo passo:** Estudar `for`, `while`, `break` e `continue` para reduzir a repetição.
 
 #### Registro do Ciclo 06 — 30/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
-## 🟠 CICLO 07 — 07/10 — Listas: armazenamento e iteração
-
-<details>
-<summary>📘 Orientações do Ciclo 07</summary>
-
-- **Sem Campo do Protocolo hoje.** Preencha o Registro do Ciclo 07.
-- Justifique **por que seus dados cabem em uma lista** e como você os percorre (iteração).
-- Item 4: erros típicos — índice fora do intervalo, alterar a lista enquanto percorre, confundir cópia com referência. Registre qual deles aconteceu e a causa técnica.
-- Item 3: nomeie as **operações de lista** que usou (adicionar, remover, ordenar, fatiar…).
-</details>
+1. **Desafio do ciclo (em 1 frase):** Entender como `while` e `for` controlam a repetição e onde o Wikicrud repete blocos que poderiam virar laço.
+2. **O que implementei (commits / arquivos / links):** No `ato1`, o menu roda em `while rodando`, uma flag booleana que passa a `False` na opção "0". Identifiquei que pesquisar e ver todos repetem o mesmo bloco cinco vezes, candidatos a `for`. [Se testou `while True` com `break`, descreva aqui.]
+3. **Objeto(s) de conhecimento mobilizado(s):** `while` com condição booleana (flag), `for` e `range()`, `break` e `continue`, valor sentinela ("0") para sair do menu.
+4. **Desvio ou erro encontrado + causa técnica:** Ao receber `rodando = False`, o laço não para na hora: o restante do corpo ainda executa, e a condição só é testada no início da próxima iteração. Hoje é inofensivo (só imprime "tchau!"), mas qualquer comando colocado depois da cadeia `if/elif` também rodaria.
+5. **Decisão de ajuste + fonte:** Manter a flag, por deixar uma única saída clara, e reservar `break` para saída antecipada dentro de laços internos. Fonte: *Pense em Python*, cap. 7 (iteração) e tutorial do Python, *More Control Flow Tools*.
+6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** **[PREENCHA COM A DEVOLUTIVA REAL DA P1: o que o professor apontou, o critério e o que você mudou. Eu não tenho acesso a ela e não vou inventar.]**
+7. **Próximo passo:** Trocar as 10 variáveis soltas por listas e iterar com `for` (Ciclo 07).
 
 #### Registro do Ciclo 07 — 07/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
-## 🟠 CICLO 08 — 14/10 — Busca/consulta e introdução a dicionários e matrizes
-
-<details>
-<summary>📘 Orientações do Ciclo 08</summary>
-
-- **Sem Campo do Protocolo hoje.** Preencha o Registro do Ciclo 08.
-- Explique **por que cada item do seu catálogo virou um dicionário** (chave → valor) em vez de uma lista de valores soltos.
-- Item 4: registre **qual busca falhou** (item inexistente, tipo diferente — `"2"` ≠ `2`, chave com maiúscula errada) e a causa técnica.
-- Se usou o lote de dados defeituoso, registre **qual registro** quebrou a busca.
-- Item 5: cite a fonte (*Pense em Python*, cap. 11, ou outra).
-</details>
+1. **Desafio do ciclo (em 1 frase):** Substituir as 10 variáveis soltas por listas e iterar com `for`, mantendo o mesmo comportamento.
+2. **O que implementei (commits / arquivos / links):** Arquivo `ato2` [confirme o nome e coloque o link do commit]: listas `titulos` e `textos` com 5 posições, `for i in range(5)` em pesquisar e ver todos e `titulos.index("")` para achar a primeira posição livre. Teste: mesma sequência de entradas do `ato1`, com saídas idênticas. O arquivo passou de 187 para 94 linhas.
+3. **Objeto(s) de conhecimento mobilizado(s):** Listas (índice, `index()`, `in`), `for` com `range`, diferença entre índice (começa em 0) e número exibido (`i + 1`), conversão `int()`.
+4. **Desvio ou erro encontrado + causa técnica:** (a) Sem validação, `titulos[int("0") - 1]` vira `titulos[-1]` e lê o último artigo sem dar erro, porque Python aceita índices negativos. (b) `titulos.index("")` lança `ValueError` quando não há posição livre.
+5. **Decisão de ajuste + fonte:** Validar `n in validos` antes do `int()` e testar `"" in titulos` antes de `index("")`. Fontes: *Pense em Python*, cap. 10 (listas) e tutorial do Python, *More on Lists*.
+6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
+7. **Próximo passo:** Duas listas paralelas podem sair de sincronia; comparar lista de listas e dicionário (Ciclo 08).
 
 #### Registro do Ciclo 08 — 14/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
+1. **Desafio do ciclo (em 1 frase):** Comparar formas de guardar e consultar os artigos (listas paralelas, matriz, dicionário) e escolher a mais adequada.
+2. **O que implementei (commits / arquivos / links):** No `ato2`, a consulta é uma busca sequencial: o `for` percorre as 5 posições testando `busca in titulos[i] or busca in textos[i]`. Estudei a matriz (`[[titulo, texto], ...]`) e o dicionário (`{titulo: texto}`) como alternativas. [Se implementou alguma, descreva e cite o commit.]
+3. **Objeto(s) de conhecimento mobilizado(s):** Busca sequencial, matriz (lista de listas), dicionário (chave → valor), unicidade de chaves.
+4. **Desvio ou erro encontrado + causa técnica:** Um dicionário por título não comporta dois artigos com o mesmo título, porque as chaves são únicas, mas o CRUD atual aceita títulos repetidos em posições diferentes. Migrar mudaria uma regra de negócio.
+5. **Decisão de ajuste + fonte:** Descartar o dicionário por título e adotar lista de listas no próximo ato, para manter título e texto juntos e eliminar o risco de dessincronia. Fontes: *Pense em Python*, cap. 10 e 11, e tutorial do Python, *Data Structures*.
+6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
+7. **Próximo passo:** Aplicar a decisão do Campo 03 (busca vazia e `strip()`) e consolidar o projeto para a entrega final.
 ---
 
 # 🔵 GRUPO 3 — prazo quinta 26/11 às 23h59
