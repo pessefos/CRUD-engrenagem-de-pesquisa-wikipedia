@@ -317,8 +317,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **4b. Pergunta formulada (transcrita integralmente):**
 
-> "eu quero que voce diminua um pouco isso, mas que ainda tenha o mesmo sentido" *(com o arquivo `ato1.txt` anexado)*
-> "encurte mais o codigo"
+
 
 **4c. Resposta da IA (resumida em parágrafo):**
 
