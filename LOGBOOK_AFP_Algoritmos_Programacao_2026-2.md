@@ -321,15 +321,15 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **4c. Resposta da IA (resumida em parágrafo):**
 
-A IA gerou primeiro uma versão de 161 linhas, usando atribuição encadeada (`titulo1 = texto1 = ""`), atribuição dupla e um único `print` em "ler". Depois gerou uma versão de 94 linhas com duas listas e `for`. Testou as duas contra o original com a mesma sequência de entradas e as saídas foram idênticas. Avisou que listas e `for` são conteúdo do Ciclo 07 e que a versão com listas ficaria incoerente com o Campo 02 e o Registro do Ciclo 02.
+.
 
 **4d. O que aceitei — com referência ao objeto de conhecimento do componente:**
 
-Aceitei a atribuição encadeada e a seleção do artigo com um único `print` em "ler" (variáveis e condicionais), porque reduzem repetição sem mudar o comportamento. Aceitei também validar por teste com as mesmas entradas, que reproduzi no meu computador. Mais tarde usei a versão com listas e `for` (Ciclo 07), depois de estudar listas, `index()` e `range()`.
+
 
 **4e. O que questionei ou descartei — com argumento técnico ou fonte:**
 
-Descartei a versão com listas para o Ciclo 02: era conteúdo do Ciclo 07 e eu não conseguiria explicá-la na defesa. Questionei o código da IA: a expressão `int(n) - 1` se repete várias vezes e poderia ser guardada em uma variável `i`. Duas listas paralelas (`titulos` e `textos`) podem sair de sincronia, e uma lista de listas evita isso. Verifiquei a afirmação "saídas idênticas" rodando os dois arquivos com a mesma entrada.
+
 
 #### Registro do Ciclo 05 — 09/09
 1. **Desafio do ciclo (em 1 frase):** Organizar as condicionais aninhadas do Wikicrud (menu → operação → validação) combinando condições com `and` e `or`.
