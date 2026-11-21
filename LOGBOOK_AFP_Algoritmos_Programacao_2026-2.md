@@ -346,7 +346,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 3. **Objeto(s) de conhecimento mobilizado(s):** `while` com condição booleana (flag), `for` e `range()`, `break` e `continue`, valor sentinela ("0") para sair do menu.
 4. **Desvio ou erro encontrado + causa técnica:** Ao receber `rodando = False`, o laço não para na hora: o restante do corpo ainda executa, e a condição só é testada no início da próxima iteração. Hoje é inofensivo (só imprime "tchau!"), mas qualquer comando colocado depois da cadeia `if/elif` também rodaria.
 5. **Decisão de ajuste + fonte:** Manter a flag, por deixar uma única saída clara, e reservar `break` para saída antecipada dentro de laços internos. Fonte: *Pense em Python*, cap. 7 (iteração) e tutorial do Python, *More Control Flow Tools*.
-6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** **[PREENCHA COM A DEVOLUTIVA REAL DA P1: o que o professor apontou, o critério e o que você mudou. Eu não tenho acesso a ela e não vou inventar.]**
+6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** *Sem devolutiva da P1**
 7. **Próximo passo:** Trocar as 10 variáveis soltas por listas e iterar com `for` (Ciclo 07).
 
 #### Registro do Ciclo 07 — 07/10
