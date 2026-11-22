@@ -317,56 +317,55 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **4b. Pergunta formulada (transcrita integralmente):**
 
-
+4b. Pergunta formulada (transcrita integralmente): Como posso organizar o controle de criação, alteração e exclusão de anúncios em variáveis separadas (anuncio1, anuncio2, anuncio3) usando if/elif/else e while sem que uma entrada inválida ou exclusão cancelada grave ou apague dados por engano?
 
 **4c. Resposta da IA (resumida em parágrafo):**
 
-.
+.A IA sugeriu usar uma variável de controle para identificar qual anúncio será manipulado e limpá-la quando ocorrer validação inválida ou cancelamento, deixando a gravação final condicional ao fato de essa variável continuar válida; também comentou sobre checar campos vazios e confirmar antes de apagar, além de apontar limitações de escalabilidade ao manter variáveis individuais em vez de uma estrutura composta.
 
 **4d. O que aceitei — com referência ao objeto de conhecimento do componente:**
 
-
+Aceitei a lógica de usar uma variável de controle (num) que só permanece preenchida quando as condições são atendidas e volta a "" quando há falha de validação (titulo == "" ou preco == ""), inexistência do anúncio ou cancelamento da exclusão (!= "s"), evitando alterações indevidas no bloco final. Isso se apoia nos objetos de conhecimento de variáveis, tipos primitivos (str, bool), operadores relacionais/lógicos (==, !=, and, or), estruturas condicionais (if/elif/else) e laços de repetição (while), reforçados nas aulas Curso Python #06 – Tipos Primitivos e Saída de Dados e Exercício Python #004 – Dissecando uma Variável (Gustavo Guanabara — Curso em Vídeo).
 
 **4e. O que questionei ou descartei — com argumento técnico ou fonte:**
-
+Questionei e descartei sugestões de alterar a estrutura de dados do programa para coleções/estruturas mais avançadas neste momento, pois o recorte do projeto na disciplina trabalhava com variáveis simples, if/elif/else e while, e a prioridade era dominar o fluxo condicional, a verificação de estado de cada variável (anuncio1, anuncio2, anuncio3) e o tipo/conteúdo das entradas obtidas com input() antes de avançar para outras estruturas. Argumento técnico e fonte: manter o escopo restrito aos objetos de conhecimento estudados evita introduzir recursos não trabalhados no código e permite validar com precisão o comportamento das expressões booleanas e do controle de fluxo no laço while, com base nas aulas de Gustavo Guanabara (Curso Python #06 e Exercício Python #004) e na prática de testar cada caminho condicional no código.
 
 
 #### Registro do Ciclo 05 — 09/09
-1. **Desafio do ciclo (em 1 frase):** Organizar as condicionais aninhadas do Wikicrud (menu → operação → validação) combinando condições com `and` e `or`.
-2. **O que implementei (commits / arquivos / links):** No `ato1`, a cadeia externa do menu (`if op == "1" ... elif ... else`) e, dentro de cada operação, uma cadeia interna de validação: criar (vazio → posição livre → sem espaço), editar (vazio → existe) e ler/apagar (existe). Condições combinadas: `titulo == "" or texto == ""` e `n == "1" and titulo1 != ""`. Repositório: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia
-3. **Objeto(s) de conhecimento mobilizado(s):** Condicionais aninhadas (cadeia dentro de cadeia), ordem de avaliação, `and` com curto-circuito (se a primeira condição é falsa, a segunda nem é avaliada), `or`.
-4. **Desvio ou erro encontrado + causa técnica:** Em editar, o programa pede novo título e novo texto antes de verificar se o artigo existe. Com `n` inválido e campos vazios, a resposta é "nao pode ficar vazio" em vez de "artigo nao existe". Causa: o teste de campo vazio vem primeiro na cadeia e vence, e os `input()` já foram executados.
-5. **Decisão de ajuste + fonte:** Verificar a existência do artigo antes de pedir os novos dados, aninhando o pedido dentro do `if` que confirma a posição. Fonte: *Pense em Python*, cap. 5 (condicionais encadeadas e aninhadas).
+1. **Desafio do ciclo (em 1 frase):** Organizar as condicionais aninhadas do Wikicrud (menu → operação → validação) e combinar condições com `and` e `or` sem gerar erros de conversão ou de índice.
+2. **O que implementei (commits / arquivos / links):** No `ato1`, a cadeia externa do menu e, dentro de cada operação, uma cadeia de validação (criar: vazio → posição livre → sem espaço; editar: vazio → existe; ler/apagar: existe). No `ato2` [link do commit], refatorei: a opção inválida é filtrada primeiro (`if op not in menu`), e a posição é validada com `n.isdecimal() and 1 <= int(n) <= len(artigos)` antes de qualquer acesso. Em editar, o pedido de novo título e texto agora fica **dentro** do `if` que confirma o artigo. Base: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia/blob/act-1/ato1
+3. **Objeto(s) de conhecimento mobilizado(s):** Condicionais aninhadas (um `if` dentro de outro), cadeia `elif` (só o primeiro bloco verdadeiro executa), `and` com curto-circuito (se `isdecimal()` é `False`, o `int(n)` nem é avaliado), comparação encadeada (`1 <= int(n) <= len(artigos)`), `or` na validação de campos vazios.
+4. **Desvio ou erro encontrado + causa técnica:** No `ato1`, editar pedia novo título e novo texto **antes** de verificar se o artigo existia. Com posição inválida e campos vazios, a resposta era "nao pode ficar vazio" em vez de "artigo nao existe", e o usuário digitava dados que seriam descartados. Causa: a verificação de campo vazio vinha antes da de existência na cadeia, e os `input()` já tinham sido executados.
+5. **Decisão de ajuste + fonte:** Aninhar o pedido dos novos dados dentro da condição que confirma o artigo. Usar `isdecimal()` antes de `int()`, pois o `and` em curto-circuito impede o `ValueError` com entradas como "abc". Fontes: *Pense em Python*, cap. 5 (condicionais encadeadas e aninhadas, operadores lógicos), e documentação do Python 3, *Boolean operations* (curto-circuito).
 6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
-7. **Próximo passo:** Estudar `for`, `while`, `break` e `continue` para reduzir a repetição.
+7. **Próximo passo:** Estudar `for`, `while`, `break` e `continue` para eliminar a repetição de blocos.
 
 #### Registro do Ciclo 06 — 30/09
-1. **Desafio do ciclo (em 1 frase):** Entender como `while` e `for` controlam a repetição e onde o Wikicrud repete blocos que poderiam virar laço.
-2. **O que implementei (commits / arquivos / links):** No `ato1`, o menu roda em `while rodando`, uma flag booleana que passa a `False` na opção "0". Identifiquei que pesquisar e ver todos repetem o mesmo bloco cinco vezes, candidatos a `for`. [Se testou `while True` com `break`, descreva aqui.]
-3. **Objeto(s) de conhecimento mobilizado(s):** `while` com condição booleana (flag), `for` e `range()`, `break` e `continue`, valor sentinela ("0") para sair do menu.
-4. **Desvio ou erro encontrado + causa técnica:** Ao receber `rodando = False`, o laço não para na hora: o restante do corpo ainda executa, e a condição só é testada no início da próxima iteração. Hoje é inofensivo (só imprime "tchau!"), mas qualquer comando colocado depois da cadeia `if/elif` também rodaria.
-5. **Decisão de ajuste + fonte:** Manter a flag, por deixar uma única saída clara, e reservar `break` para saída antecipada dentro de laços internos. Fonte: *Pense em Python*, cap. 7 (iteração) e tutorial do Python, *More Control Flow Tools*.
-6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** *Sem devolutiva da P1**
-7. **Próximo passo:** Trocar as 10 variáveis soltas por listas e iterar com `for` (Ciclo 07).
+1. **Desafio do ciclo (em 1 frase):** Usar `while` e `for` no Wikicrud para controlar o menu e eliminar a repetição de blocos, entendendo quando cada laço para.
+2. **O que implementei (commits / arquivos / links):** No `ato1`, o menu roda em `while rodando`, flag que passa a `False` na opção "0". No `ato2` [link do commit]: o menu é impresso por `for chave, descricao in menu.items()`, e pesquisar e ver todos percorrem os artigos com `for i in range(len(artigos))`, substituindo os 5 blocos repetidos por um. Não usei `break` nem `continue`: estudei os dois e mantive a flag como única saída.
+3. **Objeto(s) de conhecimento mobilizado(s):** `while` com condição booleana (flag `rodando`), `for` com `range()` e com `.items()`, `break` e `continue` (estudados), valor sentinela ("0") para sair do menu.
+4. **Desvio ou erro encontrado + causa técnica:** Ao escolher "0", o programa faz `rodando = False` mas **não sai na hora**: o restante do corpo ainda é executado e a condição só é testada no início da próxima volta. Hoje é inofensivo, porque `elif op == "0"` é o último ramo, mas qualquer linha colocada depois da cadeia `if/elif` rodaria mesmo após o usuário sair. Causa: o `while` só reavalia sua condição ao fim de cada iteração, e não no momento em que a variável muda.
+5. **Decisão de ajuste + fonte:** Manter `while rodando` com uma única saída clara, deixando o encerramento como último ramo da cadeia, e reservar `break` para saídas antecipadas dentro de laços internos. Usar `for` onde o número de passos é conhecido (`range(len(artigos))`) e `while` onde depende do usuário (o menu). Fontes: *Pense em Python*, cap. 7 (iteração), e tutorial do Python 3, *More Control Flow Tools* (`for`, `range`, `break` e `continue`).
+6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** **Ainda não teve devolutiva da P1**
+7. **Próximo passo:** Substituir as 10 variáveis do `ato1` por listas e iterar sobre elas (Ciclo 07).
 
 #### Registro do Ciclo 07 — 07/10
-1. **Desafio do ciclo (em 1 frase):** Substituir as 10 variáveis soltas por listas e iterar com `for`, mantendo o mesmo comportamento.
-2. **O que implementei (commits / arquivos / links):** Arquivo `ato2` [confirme o nome e coloque o link do commit]: listas `titulos` e `textos` com 5 posições, `for i in range(5)` em pesquisar e ver todos e `titulos.index("")` para achar a primeira posição livre. Teste: mesma sequência de entradas do `ato1`, com saídas idênticas. O arquivo passou de 187 para 94 linhas.
-3. **Objeto(s) de conhecimento mobilizado(s):** Listas (índice, `index()`, `in`), `for` com `range`, diferença entre índice (começa em 0) e número exibido (`i + 1`), conversão `int()`.
-4. **Desvio ou erro encontrado + causa técnica:** (a) Sem validação, `titulos[int("0") - 1]` vira `titulos[-1]` e lê o último artigo sem dar erro, porque Python aceita índices negativos. (b) `titulos.index("")` lança `ValueError` quando não há posição livre.
-5. **Decisão de ajuste + fonte:** Validar `n in validos` antes do `int()` e testar `"" in titulos` antes de `index("")`. Fontes: *Pense em Python*, cap. 10 (listas) e tutorial do Python, *More on Lists*.
+1. **Desafio do ciclo (em 1 frase):** Trocar as 10 variáveis soltas do `ato1` (`titulo1..5`, `texto1..5`) por uma lista dinâmica de artigos e percorrê-la com `for`, sem gerar erros de índice.
+2. **O que implementei (commits / arquivos / links):** Arquivo `ato2` [coloque o link do commit]: `artigos = []` guarda cada artigo como uma linha `[titulo, texto]` (lista de listas); criar usa `append()`, apagar usa `pop()`, e ver todos e pesquisar percorrem com `for i in range(len(artigos))`. Ler, editar e apagar acessam `artigos[int(n) - 1]` depois de validar a posição. O arquivo passou de 187 linhas (`ato1`) para 100. Base: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia/blob/act-1/ato1
+3. **Objeto(s) de conhecimento mobilizado(s):** Listas (`append`, `pop`, `len`, indexação), lista de listas (matriz), laço `for` com `range()`, diferença entre índice (começa em 0) e posição exibida (`i + 1`), conversão com `int()` e validação com `isdecimal()`.
+4. **Desvio ou erro encontrado + causa técnica:** Ao calcular `artigos[int(n) - 1]` direto da entrada, três casos falham: (a) `"6"` gera `IndexError`, pois o índice passa do tamanho da lista; (b) `"abc"` gera `ValueError` em `int()`; (c) `"0"` não dá erro e devolve o **último** artigo, pois `int("0") - 1` vale `-1` e Python aceita índice negativo. Causa: o índice calculado a partir de texto digitado não era limitado ao intervalo da lista. Outro efeito: com `pop()`, apagar o artigo 2 faz o 3 virar 2, e no `ato1` a posição ficava vazia.
+5. **Decisão de ajuste + fonte:** Validar `n.isdecimal() and 1 <= int(n) <= len(artigos)` antes de qualquer acesso, de modo que "0", "6" e "abc" caiam em "artigo nao existe". Aceitei a renumeração do `pop()` porque a lista dinâmica elimina o limite de 5 artigos. Fontes: *Pense em Python*, cap. 10 (listas), e tutorial do Python 3, seção *More on Lists*.
 6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
-7. **Próximo passo:** Duas listas paralelas podem sair de sincronia; comparar lista de listas e dicionário (Ciclo 08).
+7. **Próximo passo:** Estudar a consulta (busca) e dicionários no Ciclo 08, e usar essas estruturas na pesquisa e no menu.
 
 #### Registro do Ciclo 08 — 14/10
-1. **Desafio do ciclo (em 1 frase):** Comparar formas de guardar e consultar os artigos (listas paralelas, matriz, dicionário) e escolher a mais adequada.
-2. **O que implementei (commits / arquivos / links):** No `ato2`, a consulta é uma busca sequencial: o `for` percorre as 5 posições testando `busca in titulos[i] or busca in textos[i]`. Estudei a matriz (`[[titulo, texto], ...]`) e o dicionário (`{titulo: texto}`) como alternativas. [Se implementou alguma, descreva e cite o commit.]
-3. **Objeto(s) de conhecimento mobilizado(s):** Busca sequencial, matriz (lista de listas), dicionário (chave → valor), unicidade de chaves.
-4. **Desvio ou erro encontrado + causa técnica:** Um dicionário por título não comporta dois artigos com o mesmo título, porque as chaves são únicas, mas o CRUD atual aceita títulos repetidos em posições diferentes. Migrar mudaria uma regra de negócio.
-5. **Decisão de ajuste + fonte:** Descartar o dicionário por título e adotar lista de listas no próximo ato, para manter título e texto juntos e eliminar o risco de dessincronia. Fontes: *Pense em Python*, cap. 10 e 11, e tutorial do Python, *Data Structures*.
+1. **Desafio do ciclo (em 1 frase):** Melhorar a busca do Wikicrud e usar dicionários, `map` e matriz para organizar menu, consulta e resultados, mantendo o comportamento do CRUD.
+2. **O que implementei (commits / arquivos / links):** No `ato2` [link do commit]: o menu virou o dicionário `menu = {"1": "criar artigo", ...}`, impresso com `for chave, descricao in menu.items()` e validado com `op not in menu`; a pesquisa percorre a matriz `artigos` e guarda os resultados no dicionário `achados` (posição → título); `map(str.lower, artigos[i])` põe título e texto em minúsculas para a busca ignorar a caixa; busca vazia é recusada e `strip()` remove espaços de título e texto.
+3. **Objeto(s) de conhecimento mobilizado(s):** Busca sequencial em matriz; dicionário (chave → valor, `.items()`, `in` sobre chaves); função `map()` com `str.lower` e desempacotamento `a, b = map(...)`; `strip()` e `lower()` em strings.
+4. **Desvio ou erro encontrado + causa técnica:** O dicionário `achados` guarda a **posição** como chave, e essa posição só vale enquanto a lista não muda: se o usuário pesquisa, vê "2 - Java", apaga o artigo 1 e depois lê o artigo 2, recebe outro artigo, pois `pop()` renumera a lista. Além disso, usar o **título** como chave do dicionário de artigos não funciona, porque chaves são únicas e o CRUD aceita títulos repetidos.
+5. **Decisão de ajuste + fonte:** Manter a matriz `artigos` como armazenamento (título e texto juntos, sem dessincronia), usar dicionário só onde a chave é natural (opção do menu e resultado da busca) e tratar a posição do resultado como válida somente até a próxima alteração. Fontes: *Pense em Python*, caps. 10 e 11; tutorial do Python 3, *Data Structures* (*Dictionaries*, *Looping Techniques*); documentação do Python 3, função `map` em *Built-in Functions*.
 6. **Feedback recebido e o que mudei:** _(preencha só se houve; senão, "Sem feedback externo neste ciclo; projeto mantido".)_
-7. **Próximo passo:** Aplicar a decisão do Campo 03 (busca vazia e `strip()`) e consolidar o projeto para a entrega final.
----
+7. **Próximo passo:** A validação `n.isdecimal() and 1 <= int(n) <= len(artigos)` aparece três vezes (ler, editar, apagar); o estudo de funções (Ciclo 10) permite escrevê-la uma só vez.
 
 # 🔵 GRUPO 3 — prazo quinta 26/11 às 23h59
 
