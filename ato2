@@ -1,95 +1,99 @@
-menu = {
-    "1": "criar artigo",
-    "2": "ler artigo",
-    "3": "pesquisar",
-    "4": "editar artigo",
-    "5": "apagar artigo",
-    "6": "ver todos",
-    "0": "sair",
-}
+artigos = []
 
-rodando = True
+while True:
+    print("\n=== WIKICRUD ===")
+    print("1 - Criar | 2 - Ler | 3 - Pesquisar | 4 - Editar | 5 - Apagar | 6 - Ver todos | 0 - Sair")
+    op = input("Opção: ").strip()
 
-while rodando:
-    print("\n--- WIKIPEDIA ---")
-    for chave, descricao in menu.items():
-        print(chave, "-", descricao)
-    op = input("opcao: ")
+    if op == "1":
+        titulo = input("Título: ").strip()
+        texto = input("Texto: ").strip()
+        if not titulo or not texto:
+            print("Título e texto são obrigatórios.")
+            continue
+        artigos.append({"titulo": titulo, "texto": texto})
+        print(f"Artigo criado na posição {len(artigos)}!")
 
-    if op not in menu:
-        print("opcao invalida")
-
-    # criar
-    elif op == "1":
-        titulo = input("titulo: ").strip()
-        texto = input("texto: ").strip()
-        if titulo == "" or texto == "":
-            print("nao pode ficar vazio")
-        else:
-            artigos.append([titulo, texto])
-            print("artigo criado na posicao", str(len(artigos)) + "!")
-
-    # ler
     elif op == "2":
-        n = input("qual artigo (1 a " + str(len(artigos)) + ")? ")
-        if n.isdecimal() and 1 <= int(n) <= len(artigos):
-            titulo, texto = artigos[int(n) - 1]
-            print()
-            print(titulo)
-            print(texto)
-        else:
-            print("artigo nao existe")
+        if not artigos:
+            print("Nenhum artigo cadastrado.")
+            continue
+        try:
+            n = int(input(f"Qual artigo (1 a {len(artigos)})? ").strip())
+        except ValueError:
+            print("Número inválido.")
+            continue
+        if n < 1 or n > len(artigos):
+            print("Artigo não existe.")
+            continue
+        artigo = artigos[n - 1]
+        print(f"\n{artigo['titulo']}\n{artigo['texto']}")
 
-    # pesquisar
     elif op == "3":
-        busca = input("pesquisar: ").strip().lower()
-        if busca == "":
-            print("digite algo para pesquisar")
+        if not artigos:
+            print("Nenhum artigo para pesquisar.")
+            continue
+        termo = input("Pesquisar por título ou texto: ").strip().lower()
+        if not termo:
+            print("Digite um termo para pesquisar.")
+            continue
+        encontrados = [
+            i for i, item in enumerate(artigos)
+            if termo in item["titulo"].lower()
+            or termo in item["texto"].lower()
+        ]
+        if not encontrados:
+            print("Nenhum artigo encontrado.")
         else:
-            achados = {}  # dicionario: posicao -> titulo
-            for i in range(len(artigos)):
-                titulo_min, texto_min = map(str.lower, artigos[i])
-                if busca in titulo_min or busca in texto_min:
-                    achados[i + 1] = artigos[i][0]
-            if len(achados) == 0:
-                print("nao encontrei nada")
-            else:
-                for posicao, titulo in achados.items():
-                    print(posicao, "-", titulo)
-                print(len(achados), "resultado(s)")
+            for i in encontrados:
+                print(f"[{i + 1}] {artigos[i]['titulo']}")
+            print(f"{len(encontrados)} resultado(s)")
 
-    # editar
     elif op == "4":
-        n = input("qual artigo quer editar (1 a " + str(len(artigos)) + ")? ")
-        if n.isdecimal() and 1 <= int(n) <= len(artigos):
-            novo_titulo = input("novo titulo: ").strip()
-            novo_texto = input("novo texto: ").strip()
-            if novo_titulo == "" or novo_texto == "":
-                print("nao pode ficar vazio")
-            else:
-                artigos[int(n) - 1] = [novo_titulo, novo_texto]
-                print("artigo editado!")
-        else:
-            print("artigo nao existe")
+        if not artigos:
+            print("Nenhum artigo cadastrado.")
+            continue
+        try:
+            n = int(input(f"Qual artigo quer editar (1 a {len(artigos)})? ").strip())
+        except ValueError:
+            print("Número inválido.")
+            continue
+        if n < 1 or n > len(artigos):
+            print("Artigo não existe.")
+            continue
+        novo_titulo = input("Novo título: ").strip()
+        novo_texto = input("Novo texto: ").strip()
+        if not novo_titulo or not novo_texto:
+            print("Título e texto são obrigatórios.")
+            continue
+        artigos[n - 1] = {"titulo": novo_titulo, "texto": novo_texto}
+        print("Artigo editado!")
 
-    # apagar
     elif op == "5":
-        n = input("qual artigo quer apagar (1 a " + str(len(artigos)) + ")? ")
-        if n.isdecimal() and 1 <= int(n) <= len(artigos):
-            artigos.pop(int(n) - 1)
-            print("artigo apagado!")
-        else:
-            print("artigo nao existe")
+        if not artigos:
+            print("Nenhum artigo cadastrado.")
+            continue
+        try:
+            n = int(input(f"Qual artigo quer apagar (1 a {len(artigos)})? ").strip())
+        except ValueError:
+            print("Número inválido.")
+            continue
+        if n < 1 or n > len(artigos):
+            print("Artigo não existe.")
+            continue
+        artigos = [item for i, item in enumerate(artigos) if i != n - 1]
+        print("Artigo apagado!")
 
-    # ver todos
     elif op == "6":
-        if len(artigos) == 0:
-            print("nenhum artigo ainda")
-        else:
-            for i in range(len(artigos)):
-                print(i + 1, "-", artigos[i][0])
+        if not artigos:
+            print("Nenhum artigo cadastrado.")
+            continue
+        for i, item in enumerate(artigos):
+            print(f"[{i + 1}] {item['titulo']}")
 
-    # sair
     elif op == "0":
-        rodando = False
-        print("tchau!")
+        print("Encerrando...")
+        break
+
+    else:
+        print("Opção inválida.")
