@@ -2,7 +2,13 @@ artigos = []
 
 while True:
     print("\n=== WIKICRUD ===")
-    print("1 - Criar | 2 - Ler | 3 - Pesquisar | 4 - Editar | 5 - Apagar | 6 - Ver todos | 0 - Sair")
+    print("1 - Criar")
+    print("2 - Ler")
+    print("3 - Pesquisar")
+    print("4 - Editar")
+    print("5 - Apagar")
+    print("6 - Ver todos")
+    print("0 - Sair")
     op = input("Opção: ").strip()
 
     if op == "1":
