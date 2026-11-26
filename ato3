@@ -1,1 +1,133 @@
+# dicionario do menu: opcao -> descricao
+MENU = {
+    "1": "criar artigo",
+    "2": "ler artigo",
+    "3": "pesquisar",
+    "4": "editar artigo",
+    "5": "apagar artigo",
+    "6": "ver todos",
+    "0": "sair",
+}
 
+
+def mostrar_menu():
+    print("\n--- WIKIPEDIA ---")
+    for chave, descricao in MENU.items():
+        print(chave, "-", descricao)
+
+
+def pedir_posicao(artigos, pergunta):
+    """Pede o numero de um artigo e devolve o indice (0 a n-1), ou None se for invalido."""
+    n = input(pergunta + " (1 a " + str(len(artigos)) + ")? ")
+    if n.isdecimal() and 1 <= int(n) <= len(artigos):
+        return int(n) - 1
+    print("artigo nao existe")
+    return None
+
+
+def pedir_artigo(rotulo_titulo, rotulo_texto):
+    """Pede titulo e texto; devolve a linha [titulo, texto] ou None se algum for vazio."""
+    titulo = input(rotulo_titulo).strip()
+    texto = input(rotulo_texto).strip()
+    if titulo == "" or texto == "":
+        print("nao pode ficar vazio")
+        return None
+    return [titulo, texto]
+
+
+def criar(artigos):
+    artigo = pedir_artigo("titulo: ", "texto: ")
+    if artigo is not None:
+        artigos.append(artigo)
+        print("artigo criado na posicao", str(len(artigos)) + "!")
+
+
+def ler(artigos):
+    i = pedir_posicao(artigos, "qual artigo")
+    if i is not None:
+        titulo, texto = artigos[i]
+        print()
+        print(titulo)
+        print(texto)
+
+
+def buscar(artigos, termo, inicio, fim):
+    """Recursiva (divisao ao meio): indices em [inicio, fim) cujo titulo ou texto contem o termo.
+    O termo ja deve estar em minusculas."""
+    if inicio >= fim:                      # caso base 1: faixa vazia
+        return []
+    if fim - inicio == 1:                  # caso base 2: um unico artigo
+        titulo_min, texto_min = map(str.lower, artigos[inicio])
+        if termo in titulo_min or termo in texto_min:
+            return [inicio]
+        return []
+    meio = (inicio + fim) // 2             # caso recursivo: divide a faixa em duas
+    return buscar(artigos, termo, inicio, meio) + buscar(artigos, termo, meio, fim)
+
+
+def pesquisar(artigos):
+    termo = input("pesquisar: ").strip().lower()
+    if termo == "":
+        print("digite algo para pesquisar")
+        return
+    achados = {}  # dicionario: posicao -> titulo
+    for i in buscar(artigos, termo, 0, len(artigos)):
+        achados[i + 1] = artigos[i][0]
+    if len(achados) == 0:
+        print("nao encontrei nada")
+    else:
+        for posicao, titulo in achados.items():
+            print(posicao, "-", titulo)
+        print(len(achados), "resultado(s)")
+
+
+def editar(artigos):
+    i = pedir_posicao(artigos, "qual artigo quer editar")
+    if i is not None:
+        novo = pedir_artigo("novo titulo: ", "novo texto: ")
+        if novo is not None:
+            artigos[i] = novo
+            print("artigo editado!")
+
+
+def apagar(artigos):
+    i = pedir_posicao(artigos, "qual artigo quer apagar")
+    if i is not None:
+        artigos.pop(i)
+        print("artigo apagado!")
+
+
+def ver_todos(artigos):
+    if len(artigos) == 0:
+        print("nenhum artigo ainda")
+    for i in range(len(artigos)):
+        print(i + 1, "-", artigos[i][0])
+
+
+def main():
+    artigos = []  # matriz: cada linha e [titulo, texto]
+    rodando = True
+    while rodando:
+        mostrar_menu()
+        op = input("opcao: ")
+        if op not in MENU:
+            print("opcao invalida")
+        elif op == "1":
+            criar(artigos)
+        elif op == "2":
+            ler(artigos)
+        elif op == "3":
+            pesquisar(artigos)
+        elif op == "4":
+            editar(artigos)
+        elif op == "5":
+            apagar(artigos)
+        elif op == "6":
+            ver_todos(artigos)
+        elif op == "0":
+            rodando = False
+            print("tchau!")
+
+
+if __name__ == "__main__":
+    main()
