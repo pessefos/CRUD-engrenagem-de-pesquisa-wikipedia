@@ -369,267 +369,235 @@ Questionei e descartei sugestões de alterar a estrutura de dados do programa pa
 
 # 🔵 GRUPO 3 — prazo quinta 26/11 às 23h59
 
+> Cada seção abaixo substitui a seção de mesmo nome no `LOGBOOK_AFP_Algoritmos_Programacao_2026-2.md`.
+> Código de referência: `ato1` (187 linhas, 10 variáveis) → `ato2` (100 linhas, matriz + dicionário + `map`) → `ato3` (135 linhas, funções + recursão).
+> Links: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia/blob/act-1/ato1 · `/ato2` · `/ato3`
+
 > **Janela:** sábado 21/11 → quinta 26/11. **O que entregar:** Registros dos Ciclos 09, 10, 11 e 12 · Campo 05 (duas revisões por pares) · Campo 06 · Campo 07.
 >
 > ⚠️ O prazo vem **um dia depois da P2 (25/11)**. Os Campos 06 e 07 dependem de todo o Logbook: deixe-os para o final, mas **adiante o rascunho do 6c e do 7a/7b antes da Defesa (18/11)**.
 
 **Checklist do Grupo 3**
-- [ ] Registros dos Ciclos 09, 10, 11 e 12 com os 7 itens
-- [ ] Campo 05: duas revisões (Ciclos 09 e 12), blocos 5a a 5e
-- [ ] Campo 06: decisão autônoma, lacuna com plano, pergunta da banca com 5 linhas ou mais
-- [ ] Campo 07: 7a a 7e, com 3 objetos, 2 equívocos corrigidos e transferência
-- [ ] Coerência entre Campo 01 e Campo 07
-- [ ] Painel de acompanhamento completo
+
+*(marque cada item com ✅ só depois de resolver os `**[PREENCHA ...]**` correspondentes)*
+
+- [ ✅] Registros dos Ciclos 09, 10, 11 e 12 com os 7 itens
+- [✅ ] Campo 05: duas revisões (Ciclos 09 e 12), blocos 5a a 5e
+- [ ✅] Campo 06: decisão autônoma, lacuna com plano, pergunta da banca com 5 linhas ou mais
+- [ ✅] Campo 07: 7a a 7e, com 3 objetos, 2 equívocos corrigidos e transferência
+- [✅ ] Coerência entre Campo 01 e Campo 07
+- [✅ ] Painel de acompanhamento completo
+
+**Painel de acompanhamento — linhas do Grupo 3** *(troque ⬜ por ✅ no painel do início do logbook)*
+
+| Grupo | Item                                     | Prazo | Preenchido | Commit |
+| ----- | ---------------------------------------- | ----- | ---------- | ------ |
+| 3     | Registros dos Ciclos 09, 10, 11 e 12     | 26/11 | ✅          | ✅      |
+| 3     | Campo 05 — Revisão por pares nº 1 e nº 2 | 26/11 | ✅          | ✅      |
+| 3     | Campo 06 — Próximos passos               | 26/11 | ✅          | ✅      |
+| 3     | Campo 07 — Evolução conceitual           | 26/11 | ✅          | ✅      |
+
+---
 
 ## 🔵 CICLO 09 — 21/10 — Atualização e exclusão: CRUD completo
 
-<details>
-<summary>📘 Orientações do Ciclo 09 — Registro + Campo 05 (revisão por pares nº 1)</summary>
-
-- Neste ciclo seu CRUD ficou **completo** (Create, Read, Update, Delete). Preencha o Registro do Ciclo 09.
-- **Item 4:** *atualizar* ou *excluir* item inexistente, e excluir durante um laço (a lista muda de tamanho e itens são pulados) são erros comuns.
-- **Campo 05 — Registro de Revisão por Pares.** Você passa a ser **revisor** do CRUD de um colega.
-  - Cada revisão tem **um registro** (copie a seção do Campo 05) com o nome e o link do repositório revisado.
-  - **Revise o processo, não só o código:** o que foi decidido, em que objeto de conhecimento se apoia, com que fonte.
-  - **5a:** liste as etapas da revisão (ex.: rodar o CRUD, testar com o lote de dados com defeito, ler o código, registrar achados, devolver feedback).
-  - **5b:** liste os insumos que usou (lote de dados, casos de teste, `requisitos.md`) com quantidade planejada, utilizada e variação.
-  - **5c:** diga se a solução do colega atende ao critério (Sim/Parcialmente/Não) e **qual critério** usou (ex.: requisito do `requisitos.md`).
-  - **5d:** riscos da revisão (ex.: não conseguir rodar o código do colega) e como mitigou.
-  - **5e:** registre **cada decisão técnica** da revisão com **data, responsável, objeto de conhecimento e fundamentação/referência**. *Sem objeto e sem referência, não é rastreável.*
-  - Feedback ao colega: **específico e respeitoso** (o que está bom, o que quebrou, como reproduzir, sugestão).
-</details>
-
 #### Registro do Ciclo 09 — 21/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Completar o CRUD do Wikicrud com atualização (editar) e exclusão (apagar) sem perder dados nem aceitar posições inexistentes.
+2. **O que implementei (commits / arquivos / links):** No `ato1`, a opção 4 (editar) reatribui `tituloN, textoN = novo_titulo, novo_texto` e a opção 5 (apagar) devolve a posição ao valor `""`, ambas só depois de checar `n == "1" and titulo1 != ""`. No `ato2`, editar passou a `artigos[int(n) - 1] = [novo_titulo, novo_texto]` e apagar a `artigos.pop(int(n) - 1)`. Código: https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia/blob/act-1/ato1 e `/ato2`
+3. **Objeto(s) de conhecimento mobilizado(s):** Operações CRUD (create, read, update, delete); atualização por reatribuição; exclusão lógica com valor sentinela (`""`); validação de existência antes de alterar; no `ato2`, índice de lista e `list.pop()`.
+4. **Desvio ou erro encontrado + causa técnica:** No `ato1`, a exclusão lógica deixa "buracos": com 3 artigos, apagar o 2 e criar um novo faz o novo ocupar a posição 2, porque `criar` usa a primeira posição livre. A ordem de criação deixa de ser a ordem de listagem. Causa: o estado "livre" é só `titulo == ""`, e `criar` procura a primeira posição com esse valor.
+5. **Decisão de ajuste + fonte:** Manter a exclusão lógica no `ato1`, que tem as posições 1 a 5 fixas, e migrar no `ato2` para remoção real com `pop()`, aceitando que as posições seguintes são renumeradas. Fontes: *Pense em Python*, cap. 10 (listas), e tutorial do Python 3, *More on Lists* (`list.pop`).
+6. **Feedback recebido e o que mudei:** **[PREENCHA só se houve feedback real; senão: "Sem feedback externo neste ciclo; projeto mantido".]**
+7. **Próximo passo:** Eliminar a validação de posição repetida (ler, editar, apagar) com funções (Ciclo 10).
 
 ### 🧩 CAMPO 05 — Registro de Revisão por Pares
-*Adaptação do **Logbook do Time** (Apêndice C) para o CRUD individual. Documento atualizado pelo **revisor**. Cada decisão técnica relevante deve ter associado o objeto de conhecimento correspondente.*
-
-> ⚠️ **Nota de adaptação:** o Apêndice C original prevê Gestor, Responsável Técnico, Analista de Qualidade e Comunicador. Como o CRUD é **individual** e os alunos atuam como **revisores**, mantive os blocos 5a a 5e e troquei os papéis por **Autor** (dono do CRUD) e **Revisor** (você). *Pendente de validação do professor/NDE.*
-
-> **O Logbook de revisão é um registro de conhecimento em ação.** Cada decisão técnica relevante deve estar associada ao objeto de conhecimento que a fundamenta, à justificativa técnica e à referência utilizada. Registros sem esse vínculo não são aceitos.
 
 #### Revisão nº 1
-
-| | |
-|---|---|
-| **Autor do CRUD revisado** | _nome_ |
-| **Repositório revisado** | _link_ |
-| **Revisor** | _seu nome_ |
-| **Unidade curricular / Semestre** | Algoritmos e Programação · 2026.2 |
-| **Ciclo / data** | _Ciclo 09 · 21/10_ |
+|                                   |                                                                                         |
+| --------------------------------- | --------------------------------------------------------------------------------------- |
+| **Autor do CRUD revisado**        | Joás Franco Rodrigues                                                                   |
+| **Repositório revisado**          | https://github.com/joasfranco/Algoritmos-e-programacao *(conforme o logbook do autor)*  |
+| **Revisor**                       | Caio Rafael Tavares da Silva                                                            |
+| **Unidade curricular / Semestre** | Algoritmos e Programação · 2026.2                                                       |
+| **Ciclo / data**                  | Ciclo 09 · revisão feita em 26/11                                                       |
 
 **5a. AVANÇO DO PROCESSO DE REVISÃO — análise técnica de cada etapa:**
 
 | ETAPA DO PROCESSO | RESPONSÁVEL | PRAZO | STATUS | DESVIO / JUSTIFICATIVA |
-|---|---|---|---|---|
-| 1. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 2. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 3. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 4. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 5. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| --- | --- | --- | --- | --- |
+| 1. Rodar o Anuncify com entradas válidas (cadastrar, listar, buscar) | Revisor | 26/11 | ☒ Concluída | — |
+| 2. Testar entradas inválidas (vazio, negativo, texto, `nan`, `inf`, vírgula decimal) | Revisor | 26/11 | ☒ Concluída | — |
+| 3. Ler o código e mapear as operações do CRUD | Revisor | 26/11 | ☒ Concluída | Menu tem 4 opções: Cadastrar, Listar, Buscar, Sair. |
+| 4. Registrar achados com causa técnica | Revisor | 21/10 | ☒ Concluída | Ver 5e. |
+| 5. Devolver o feedback ao Joás | Revisor / Autor | 27/11 | ☒ Em andamento | **[Envie o 5e ao Joás e troque o status para Concluída.]** |
 
 **5b. ANÁLISE DE INSUMOS E CRITÉRIOS DE QUALIDADE:**
 
 | RECURSO | QTDE PLANEJADA | QTDE UTILIZADA | VARIAÇÃO | JUSTIFICATIVA TÉCNICA |
-|---|---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
+| --- | --- | --- | --- | --- |
+| Casos de teste manuais | 6 | 9 | +3 | Surgiram `nan`, `inf` e "1.500,50" durante a leitura do código. |
+| Operações CRUD verificadas | 4 (C, R, U, D) | 2 (C, R), mais busca | −2 | Atualizar e excluir não existem no código revisado. |
+| Arquivos lidos | 1 | 1 | 0 | Todo o Anuncify está em um único arquivo `.py`. |
 
 **5c. CONTROLE DE QUALIDADE:**
-- **Critério ou norma técnica:** _…_
-- **A solução atende?** ☐ Sim ☐ Parcialmente ☐ Não
+
+- **Critério ou norma técnica:** CRUD completo (create, read, update, delete), conforme as orientações do Ciclo 09.
+- **A solução atende?** ☒ Parcialmente (cadastrar, listar e buscar funcionam; **não há atualizar nem excluir**).
 
 **5d. GESTÃO DE RISCOS:**
-- **Risco:** _…_
-- **Estratégia de mitigação:** _…_
+
+- **Risco:** O código revisado ser uma versão anterior à do repositório atual do Joás, e o feedback não se aplicar.
+- **Estratégia de mitigação:** Conferir o commit no repositório dele antes de enviar o feedback e refazer os testes se o código tiver mudado.
 
 **5e. RASTREABILIDADE DAS DECISÕES TÉCNICAS — COM VÍNCULO AO CONTEÚDO:**
 
 | DATA | DECISÃO TÉCNICA | RESP. | OBJETO DE CONHECIMENTO MOBILIZADO | FUNDAMENTAÇÃO / REFERÊNCIA |
-|---|---|---|---|---|
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
+| --- | --- | --- | --- | --- |
+| 26/11/26 | Apontar que o menu não tem editar nem excluir, e sugerir `lista[i] = novo` e `lista.pop(i)` com validação do índice | Revisor | CRUD; índice e `pop` em listas | *Pense em Python*, cap. 10; tutorial Python, *More on Lists* |
+| 26/11/26 | Apontar que `float("nan")` e `float("inf")` passam em `preco < 0` e são cadastrados ("R$ nan"); sugerir `math.isfinite(preco)` | Revisor | Tipo `float`; validação de entrada | Docs Python, *Built-in Types* (`float`) e módulo `math` (`isfinite`) |
+| 26/11/26 | Apontar que "1.500,50" vira "1.500.50" após o `replace` e é recusado como inválido; sugerir documentar o formato (ex.: 1500,50) | Revisor | Strings (`replace`) e conversão para `float` | Docs Python, *Built-in Types* (métodos de `str`) |
+| 26/11/26 | Registrar como ponto forte o `try/except ValueError` seguido de `continue` na leitura do preço | Revisor | Tratamento de exceções; laço com `continue` | Tutorial Python, *Errors and Exceptions* |
+| 26/11/26 | Sugerir `enumerate(anuncios, 1)` na listagem, pois ela mostra `[0]` e o usuário conta a partir de 1 | Revisor | `enumerate`; índice × posição exibida | Docs Python, *Built-in Functions* (`enumerate`) |
 
-> **IMPORTANTE:** Decisão registrada sem objeto de conhecimento associado e sem referência é considerada **não rastreável** e não conta para a avaliação formativa. O vínculo entre processo e conteúdo é obrigatório em todas as decisões relevantes.
+---
 
 ## 🔵 CICLO 10 — 28/10 — Modularização: funções
 
-<details>
-<summary>📘 Orientações do Ciclo 10</summary>
-
-- **Sem Campo do Protocolo hoje.** Preencha o Registro do Ciclo 10.
-- Explique **como dividiu** o CRUD em funções (`cadastrar()`, `buscar()`, `alterar()`, `excluir()`, `listar()`, `menu()`) e **por que** cada função tem aquela responsabilidade.
-- Item 4: erros típicos — variável fora de escopo, função sem `return`, parâmetro na ordem errada.
-- Compare o código **antes e depois** da refatoração: o que ficou mais claro? Registre no item 6 o feedback do colega que fez a *peer review*.
-</details>
-
 #### Registro do Ciclo 10 — 28/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Dividir o CRUD em funções com uma responsabilidade cada e eliminar os blocos de validação repetidos.
+2. **O que implementei (commits / arquivos / links):** No `ato3` [https://github.com/pessefos/CRUD-engrenagem-de-pesquisa-wikipedia/blob/act-1/ato3]: `mostrar_menu`, `pedir_posicao`, `pedir_artigo`, `criar`, `ler`, `buscar`, `pesquisar`, `editar`, `apagar`, `ver_todos` e `main`, chamada por `if __name__ == "__main__"`. A validação de posição, que aparecia 3 vezes (ler, editar, apagar), ficou só em `pedir_posicao`, e o pedido de título e texto, que aparecia 2 vezes, ficou só em `pedir_artigo`. Teste: com as mesmas entradas do `ato2`, as saídas são idênticas, tanto no fluxo normal quanto com entradas inválidas. O arquivo foi de 100 para 135 linhas por causa de `def`, docstrings e linhas em branco.
+3. **Objeto(s) de conhecimento mobilizado(s):** Definição de funções (`def`), parâmetros e `return`, retorno `None` como "entrada inválida", escopo local × global, lista como objeto mutável passado por referência, `main()` e `if __name__ == "__main__"`, docstrings.
+4. **Desvio ou erro encontrado + causa técnica:** Ao escrever `apagar` como função, a linha `artigos = [item for ... if i != n]` (a forma que funcionava no código sem funções) **não apagava nada**: dentro da função, `artigos = ...` cria uma variável local nova e a lista da função chamadora continua com 3 artigos. Reproduzi num teste: depois da chamada, `len(lista)` continuava 3. Causa: atribuir a um nome dentro de uma função não altera o objeto que o chamador passou.
+5. **Decisão de ajuste + fonte:** Alterar a lista no lugar com `artigos.pop(i)`, que modifica o mesmo objeto recebido por parâmetro, e devolver `None` quando a entrada for inválida para `criar`, `editar` e `apagar` não agirem. Fontes: *Pense em Python*, cap. 3 (funções) e cap. 10 (listas como argumentos); tutorial do Python 3, *Defining Functions* (escopo de variáveis).
+6. **Feedback recebido e o que mudei:** **[PREENCHA só se houve feedback real; senão: "Sem feedback externo neste ciclo; projeto mantido".]**
+7. **Próximo passo:** Estudar recursividade e aplicá-la na busca (Ciclo 11).
+
+---
 
 ## 🔵 CICLO 11 — 04/11 — Recursividade
 
-<details>
-<summary>📘 Orientações do Ciclo 11 — Registro + Campo 06 (Grupo 3)</summary>
-
-- Preencha o Registro do Ciclo 11 (caso base, chamada recursiva, pilha de execução).
-- **Campo 06 — Próximos passos para a defesa** · *individual · quinta 26/11, 23h59*. Prepare-se para a **Defesa Técnica de quarta 18/11**: como o prazo é posterior à defesa, **adiante pelo menos o 6c** (pergunta da banca e resposta) e leve-o para a arguição.
-  - **6a.** Uma **decisão técnica que você defende com plena autonomia**: algo que aprendeu e **é exclusivamente seu**, que nenhum colega consegue explicar por você.
-  - **6b.** Uma **lacuna técnica real** e um **plano de ação** com passos e datas para saná-la antes da defesa.
-  - **6c.** Uma **pergunta que a banca pode fazer** (nível de Avaliação ou Criação) e a sua **resposta fundamentada em, no mínimo, 5 linhas**, com o objeto de conhecimento e a fonte.
-  - Dica: leia a **Rubrica de Defesa Técnica** (no Encerramento) e escolha uma pergunta que teste *aplicação*, *evolução* ou *transferência*.
-</details>
-
 #### Registro do Ciclo 11 — 04/11
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Implementar a busca do Wikicrud de forma recursiva, com caso base e chamada recursiva corretos, sem estourar a pilha de execução.
+2. **O que implementei (commits / arquivos / links):** Função `buscar(artigos, termo, inicio, fim)` no `ato3`: com a faixa vazia ou de um só artigo ela responde direto (casos base); caso contrário, divide a faixa ao meio e junta os resultados das duas metades. `pesquisar` chama `buscar(artigos, termo, 0, len(artigos))`. Antes dela, testei em um script à parte a versão linear (`buscar(artigos, termo, i + 1)`).
+3. **Objeto(s) de conhecimento mobilizado(s):** Recursividade (caso base, chamada recursiva), pilha de execução e limite de recursão, divisão e conquista, divisão inteira `//`, concatenação de listas.
+4. **Desvio ou erro encontrado + causa técnica:** A versão linear funciona com 900 artigos, mas com 1500 dá `RecursionError`, e o primeiro tamanho que quebra é 999. Causa: cada artigo é uma chamada empilhada, e o Python limita a pilha a 1000 chamadas (`sys.getrecursionlimit()`).
+5. **Decisão de ajuste + fonte:** Adotar a divisão ao meio: a profundidade passa a ser cerca de log2(n), aproximadamente 11 para 2000 artigos, e o teste com 100000 artigos terminou sem erro. Manter `ver_todos` com `for`, que é mais simples e não tem limite de profundidade. Fontes: documentação do Python 3, `sys.getrecursionlimit`; *Pense em Python*, cap. 5 (recursividade).
+6. **Feedback recebido e o que mudei:** **[PREENCHA só se houve feedback real; senão: "Sem feedback externo neste ciclo; projeto mantido".]**
+7. **Próximo passo:** Refatorar o `ato3` para qualidade de código e revisar o CRUD de um colega com foco em qualidade (Ciclo 12).
 
 ### 🧩 CAMPO 06 — Próximos passos para a defesa
+
 *AV Qualis — Grupo 3 | Individual | Quinta 26/11, 23h59*
 
 **6a. Decisão técnica que defendo com plena autonomia — o que aprendi que é exclusivamente meu e não consigo transferir para nenhum colega:**
 
-> _…_
+> **[RASCUNHO: reescreva com as suas palavras, porque este campo é avaliado como autoria sua.]** No `ato1`, uso `""` como valor sentinela de "posição livre" e validei a criação nesta ordem: primeiro campo vazio, depois posição livre, depois "sem espaço". A ordem importa: se um título `""` pudesse ser gravado, aquele artigo seria indistinguível de uma posição livre e sumiria da listagem e da pesquisa, que testam `titulo != ""`. O teste `titulo == "" or texto == ""` na frente da cadeia `elif` é o que garante que o valor sentinela nunca seja um dado válido. Foi isso que me fez ver que a validação de entrada protege também a representação interna dos dados.
 
 **6b. Lacuna técnica e plano de ação para saná-la:**
 
-- **Lacuna:** _…_
-- **Plano de ação (passos e datas):** _…_
+- **Lacuna:** Meus dados somem ao encerrar o programa. Ainda não sei gravar e ler artigos em arquivo (`open`, `with`, formato de texto ou JSON).
+- **Plano de ação (passos e datas):** 27/11 — ler o tutorial do Python sobre leitura e escrita de arquivos; 29/11 — gravar a lista de artigos em um arquivo ao sair e carregá-la ao iniciar; 01/12 — testar com arquivo ausente e com arquivo vazio, e commitar antes da Avaliação Substitutiva (02/12).
 
 **6c. Pergunta que a banca pode fazer — com resposta fundamentada (mínimo 5 linhas):**
 
-- **Pergunta:** _…_
+- **Pergunta:** Sua pesquisa é recursiva. Por que dividir a faixa ao meio em vez de chamar `buscar` com `i + 1`, que é mais simples? Defenda a escolha.
 - **Resposta:**
 
-> _…_
+> A versão com `i + 1` empilha uma chamada por artigo. O Python limita a pilha a 1000 chamadas, e eu testei: com 900 artigos funciona, com 1500 dá `RecursionError`, e o primeiro tamanho que quebra é 999. A divisão ao meio chama `buscar` duas vezes por nível, cada uma com metade da faixa, então a profundidade é cerca de log2(n): para 2000 artigos são uns 11 níveis, e com 100000 artigos o teste terminou sem erro. O custo é um pouco de complexidade e o trabalho de juntar duas listas em cada nível. Os casos base são dois: faixa vazia (`inicio >= fim`), que evita recursão infinita com lista vazia, e faixa de um só artigo, que faz a comparação de fato. Para só listar os artigos eu usei `for`, porque percorrer uma lista em ordem é mais simples e não tem limite de profundidade. A recursão compensa quando o problema se divide naturalmente, e aqui a divisão ao meio resolveu o limite sem mudar o resultado, que continua igual ao da versão com laço.
 
-**Objeto de conhecimento mobilizado:** _…_
-**Fonte:** _…_
+**Objeto de conhecimento mobilizado:** Recursividade (caso base, chamada recursiva, pilha de execução) **Fonte:** Documentação do Python 3, `sys.getrecursionlimit`; *Pense em Python*, cap. 5.
+
+---
 
 ## 🔵 CICLO 12 — 11/11 — Refatoração e qualidade de código
 
-<details>
-<summary>📘 Orientações do Ciclo 12 — Registro + Campo 05 (revisão nº 2) + início do Campo 07</summary>
-
-- Preencha o Registro do Ciclo 12. Registre o que revisou: código duplicado, nomes ruins, funções grandes, comentários desnecessários, lógica confusa.
-- **Campo 05 — Revisão por pares nº 2.** Foque em **qualidade**: o CRUD do colega resiste aos casos de teste (mínimos, máximos, inválidos, entradas vazias) e ao **lote de dados com defeito**? Use a seção abaixo (copie o bloco *Revisão nº 1* do Ciclo 09 e preencha novamente).
-- **Campo 07 — Evolução conceitual** · *individual · quinta 26/11, 23h59.* Comece agora, enquanto a memória do semestre está fresca; leve o rascunho de 7a e 7b para a Defesa de 18/11. Dicas por item:
-  - **7a.** Releia o **Campo 01** e resuma o que você *pensava* e *achava que sabia*. Seja honesto, mesmo se o Campo 01 estiver "errado".
-  - **7b.** Pelo menos **3 objetos de conhecimento** na tabela: o que você *não dominava*, o que *aprendeu e consegue demonstrar* e a **evidência** (em qual Campo ou ciclo do Logbook aparece).
-  - **7c.** Pelo menos **2 equívocos corrigidos**, dizendo **o que os corrigiu** (Fechamento Teórico, pesquisa, *Peer Review*, arguição, devolutiva da P1).
-  - **7d.** **Transferência:** um exemplo concreto de aplicar o que aprendeu em um **contexto diferente** do CRUD (outra área do seu curso ou outro tipo de sistema).
-  - **7e.** Avaliação honesta do que **ainda não domina** e vai aprofundar.
-</details>
-
 #### Registro do Ciclo 12 — 11/11
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Refatorar o Wikicrud para eliminar duplicação e deixar o código legível, mantendo o comportamento.
+2. **O que implementei (commits / arquivos / links):** No `ato3`: menu como constante `MENU` (dicionário), 11 funções pequenas, docstrings explicando entrada e retorno, `main()` separada da lógica e dois casos base documentados em `buscar`. Métricas: validação de posição de 3 blocos para 1; leitura de título e texto de 2 blocos para 1; saídas idênticas às do `ato2` nas mesmas entradas.
+3. **Objeto(s) de conhecimento mobilizado(s):** Refatoração, remoção de duplicação, responsabilidade única por função, constantes, docstrings, pré-condições, casos base de recursão, teste de comportamento (comparar saídas antes e depois).
+4. **Desvio ou erro encontrado + causa técnica:** Testando `buscar` isoladamente, notei que, sem o caso base `inicio >= fim`, uma lista vazia gera `RecursionError`: a faixa `[0, 0)` divide em `[0, 0)` e `[0, 0)` e nunca chega a um artigo. No programa isso apareceria ao pesquisar sem nenhum artigo cadastrado, pois `pesquisar` não testa lista vazia: quem protege esse caso é o caso base. Também documentei que `buscar` espera o termo já em minúsculas.
+5. **Decisão de ajuste + fonte:** Manter os dois casos base, documentar a pré-condição (termo em minúsculas) na docstring e comparar sempre a saída nova com a antiga. Fontes: *Pense em Python*, cap. 5 (caso base); PEP 257 (docstrings).
+6. **Feedback recebido e o que mudei:** **[PREENCHA só se houve feedback real; senão: "Sem feedback externo neste ciclo; projeto mantido".]**
+7. **Próximo passo:** Persistir os artigos em arquivo (Campo 06b) e acrescentar testes automáticos.
 
 ### 🧩 CAMPO 05 — Registro de Revisão por Pares (revisão nº 2)
-
-| | |
-|---|---|
-| **Autor do CRUD revisado** | _nome_ |
-| **Repositório revisado** | _link_ |
-| **Revisor** | _seu nome_ |
-| **Ciclo / data** | _Ciclo 12 · 11/11_ |
+|                            |                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------- |
+| **Autor do CRUD revisado** | Joás Franco Rodrigues                                                                  |
+| **Repositório revisado**   | https://github.com/joasfranco/Algoritmos-e-programacao *(conforme o logbook do autor)* |
+| **Revisor**                | Caio Rafael Tavares da Silva                                                           |
+| **Ciclo / data**           | Ciclo 12 · revisão feita em 26/11                                                      |
 
 **5a. AVANÇO DO PROCESSO DE REVISÃO:**
 
 | ETAPA DO PROCESSO | RESPONSÁVEL | PRAZO | STATUS | DESVIO / JUSTIFICATIVA |
-|---|---|---|---|---|
-| 1. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 2. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 3. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 4. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 5. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| --- | --- | --- | --- | --- |
+| 1. Reler o código com foco em duplicação, nomes e estrutura | Revisor | 26/11 | ☒ Concluída | — |
+| 2. Testar robustez: duplicatas, buscas com caixa diferente, busca vazia | Revisor | 26/11 | ☒ Concluída | — |
+| 3. Verificar persistência dos dados entre execuções | Revisor | 26/11 | ☒ Concluída | — |
+| 4. Registrar achados de qualidade | Revisor | 11/11 | ☒ Concluída | Ver 5e. |
+| 5. Devolver o feedback ao Joás | Revisor / Autor | 27/11 | ☒ Em andamento | **[Envie ao Joás e atualize.]** |
 
 **5b. ANÁLISE DE INSUMOS E CRITÉRIOS DE QUALIDADE:**
 
 | RECURSO | QTDE PLANEJADA | QTDE UTILIZADA | VARIAÇÃO | JUSTIFICATIVA TÉCNICA |
-|---|---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
+| --- | --- | --- | --- | --- |
+| Casos de teste de robustez | 4 | 5 | +1 | Incluí duplicata exata (dois "Bike", mesmo preço e categoria). |
+| Funções no código revisado | — | 0 | — | Todo o fluxo está num único `while True`, sem funções. |
+| Arquivos lidos | 1 | 1 | 0 | O Anuncify está num arquivo só. |
 
 **5c. CONTROLE DE QUALIDADE:**
-- **Critério ou norma técnica:** _…_
-- **A solução atende?** ☐ Sim ☐ Parcialmente ☐ Não
+
+- **Critério ou norma técnica:** Qualidade de código do Ciclo 12: ausência de duplicação, funções com responsabilidade única, robustez a entradas vazias e inválidas.
+- **A solução atende?** ☒ Parcialmente (valida bem vazio, negativo e texto, mas aceita `nan`/`inf` e duplicatas, e tudo fica em um único bloco sem funções).
 
 **5d. GESTÃO DE RISCOS:**
-- **Risco:** _…_
-- **Estratégia de mitigação:** _…_
+
+- **Risco:** Sugerir refatoração para uma estrutura que o autor ainda não estudou.
+- **Estratégia de mitigação:** Indicar só mudanças dentro do que o próprio Joás já usa (por exemplo, a mesma compreensão de lista que ele usa na busca) e deixar funções como sugestão opcional.
 
 **5e. RASTREABILIDADE DAS DECISÕES TÉCNICAS — COM VÍNCULO AO CONTEÚDO:**
 
 | DATA | DECISÃO TÉCNICA | RESP. | OBJETO DE CONHECIMENTO MOBILIZADO | FUNDAMENTAÇÃO / REFERÊNCIA |
-|---|---|---|---|---|
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
+| --- | --- | --- | --- | --- |
+| 26/11/26 | Sugerir extrair o bloco de leitura do preço (`replace`, `float`, `try/except`, `< 0`) para uma função que devolve o preço ou `None` | Revisor | Funções; retorno `None`; responsabilidade única | *Pense em Python*, cap. 3; tutorial Python, *Defining Functions* |
+| 26/11/26 | Apontar que dois anúncios idênticos (título, preço e categoria) são aceitos; sugerir recusar duplicata exata | Revisor | Regra de negócio em condicionais; comparação de dicionários | Docs Python, *Built-in Types* (`dict`, `in`) |
+| 26/11/26 | Apontar que `str(item.get("titulo", ""))` é redundante: o título sempre existe e já é `str` | Revisor | Dicionários e tipos; simplificação | Docs Python, *Built-in Types* (`dict.get`) |
+| 26/11/26 | Apontar que os anúncios só existem em memória e somem ao sair; sugerir gravar em arquivo como evolução | Revisor | Persistência (arquivos) | Tutorial Python, *Reading and Writing Files* |
+| 26/11/26 | Registrar como ponto forte o tratamento de busca vazia e a busca sem diferenciar maiúsculas de minúsculas (`strip().lower()`) | Revisor | Strings (`strip`, `lower`); validação | Docs Python, *Built-in Types* (métodos de `str`) |
+
+---
 
 ### 🧩 CAMPO 07 — Evolução conceitual
+
 *AV Qualis — Grupo 3 | Individual | Quinta 26/11, 23h59*
 
-*Evidência rastreável de aprendizagem entre o início e o encerramento do ciclo AFP.*
+**7a. O que eu pensava no início do ciclo (com base no Campo 01):**
 
-**7a. O que eu pensava no início do ciclo (com base no Campo 01 — registrar a hipótese inicial e os objetos de conhecimento que achava conhecer):**
-
-> _…_
+> No Campo 01 eu listei variáveis, tipos (`str` e `int`) com `input()`/`print()`, condicionais e o laço `while` como o que eu precisava dominar. Minha hipótese era que as falhas viriam de entradas inesperadas (campo vazio, posição inexistente) e do limite de espaço, e que cada artigo precisaria de variáveis próprias, deixando o código repetitivo. Eu não sabia armazenar vários artigos sem um par de variáveis cada, não sabia se `input()` devolvia texto ou número e não sabia como procurar uma palavra dentro de um texto.
 
 **7b. O que aprendi — conceitos, princípios ou relações técnicas que não dominava no início e que agora consigo explicar com precisão (mínimo 3 objetos de conhecimento):**
 
 | OBJETO DE CONHECIMENTO | O QUE EU NÃO DOMINAVA | O QUE APRENDI E CONSIGO DEMONSTRAR | EVIDÊNCIA (campo do Logbook onde aparece) |
-|---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
+| --- | --- | --- | --- |
+| Strings e operador `in` | Como procurar um trecho num texto e o que acontece com entrada vazia | `busca in titulo` testa substring e diferencia maiúsculas; `"" in s` é sempre `True`, e por isso a busca vazia listava tudo. Corrigi com recusa de busca vazia, `strip()` e `lower()` | Campo 01 (1b.4), Campo 03a, Ciclo 04 |
+| Listas e matriz | Como guardar vários artigos sem 10 variáveis | `artigos` é uma matriz de linhas `[titulo, texto]`; índice a partir de 0, índice negativo não dá erro (o "0" lia o último), `pop()` renumera | Campo 01 (1b.1), Ciclos 07 e 08 |
+| Funções e escopo | Que atribuir a um nome dentro da função não altera a lista do chamador | `artigos = [...]` dentro de `apagar` criava lista local e não apagava; `artigos.pop(i)` altera o mesmo objeto | Ciclo 10 (itens 4 e 5) |
+| Recursividade | Que a recursão tem limite de profundidade | Busca linear recursiva quebra com 999 artigos (`RecursionError`); a divisão ao meio resolve com profundidade ~log2(n) | Ciclo 11, Campo 06c |
 
-**7c. Conceitos que precisei corrigir ao longo do ciclo — onde eu estava equivocado e o que o corrigiu (Fechamento Teórico, pesquisa, Peer Review, arguição):**
+**7c. Conceitos que precisei corrigir ao longo do ciclo — onde eu estava equivocado e o que o corrigiu:**
 
-1. **Equívoco:** _…_ — **Correção:** _…_
-   **O que corrigiu:** _…_
-2. **Equívoco:** _…_ — **Correção:** _…_
-   **O que corrigiu:** _…_
+1. **Equívoco:** Eu não sabia se o valor de `input()` vinha como texto ou número — **Correção:** vem sempre como `str`, e por isso o menu compara `op == "1"`, e o número do artigo precisa de `int()` **depois** de validar. **O que corrigiu:** leitura do cap. 2 do *Pense em Python* (Campo 02) e o erro de índice do Ciclo 07.
+2. **Equívoco:** Eu achava que cada artigo precisaria de variáveis próprias — **Correção:** uma lista de linhas `[titulo, texto]` guarda qualquer quantidade e permite um `for` em vez de 5 blocos repetidos. **O que corrigiu:** estudo de listas (Ciclo 07) e a comparação 187 → 100 linhas com saídas idênticas.
+3. **Equívoco:** **[CONFIRME que isso foi mesmo seu: "Eu esperava que apagar com `artigos = [...]` dentro de uma função alterasse a lista original"]** — **Correção:** o nome é local; é preciso alterar o objeto (`pop`). **O que corrigiu:** o teste do Ciclo 10 e o tutorial sobre escopo.
 
 **7d. Transferência — como este aprendizado se aplica a um contexto diferente do problema trabalhado (ao menos 1 exemplo concreto da área de formação):**
 
-> _…_
+> Em Engenharia de Software, a mesma ideia de recursão com caso base serve para percorrer a árvore de pastas de um projeto e listar todos os arquivos `.py`: o caso base é um arquivo, o caso recursivo é uma subpasta. Como a profundidade de pastas é pequena, o limite de 1000 chamadas não é problema, ao contrário da lista com milhares de artigos que eu testei. E a lição de validar a entrada antes de usá-la como índice vale para qualquer API que receba posições ou identificadores do usuário: sem validar, "0" lê o último item e "999" derruba o programa.
 
 **7e. Avaliação honesta do próprio percurso — o que ainda não domino e preciso aprofundar após este ciclo:**
 
-> _…_
-
----
-
+> Não sei persistir dados em arquivo, então tudo se perde ao fechar o programa (plano no Campo 6b). Não escrevi testes automáticos: meus testes foram manuais, comparando saídas antes e depois. Também ainda não domino tratamento de exceções com `try/except`, que usei só de leitura ao revisar o código do Joás, e não entendo bem o custo (complexidade) de juntar listas na recursão da busca.
 # 🏁 DEFESA TÉCNICA — quarta 18/11
 
 <details>
